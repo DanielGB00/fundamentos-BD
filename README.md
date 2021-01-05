@@ -1,5 +1,5 @@
 # FUNDAMENTOS DE BASES DE DATOS
-<p>Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](https://platzi.com/clases/bd/ "Fundamentos de Base de Datos") de PLATZI 💚. El curso es dictado por Israel Vázquez, Senior Web Developer en SF startup YouNoodle.</p>
+Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](https://platzi.com/clases/bd/ "Fundamentos de Base de Datos") de PLATZI 💚. El curso es dictado por [Israel Vázquez](https://platzi.com/p/isravazquezmorales/ "Israel Vázquez"), Senior Web Developer en SF startup YouNoodle.
 <p>Espero estos apuntes puedan servirles de apoyo durante el curso. </p>
 
 <p>att. D.A.G.B </p>
