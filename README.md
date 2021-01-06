@@ -17,9 +17,13 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
 
 ## TABLA DE CONTENIDOS
 - [CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO](#CONCEPTOS-BÁSICOS-Y-CONTEXTO-HISTÓRICO)
--
+  - [Historia del almacenamiento de la información](#Historia-del-almacenamiento-de-la-información)
+  - [Surgimiento de las bases de datos](#Surgimiento-de-las-bases-de-datos)
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
+
+### Historia del almacenamiento de la información
+
 >En la antiguedad la información era transmitida de boca en boca y esto causaba que aveces sea distorsionada, además parte de la información que poseía una persona se perdía al concluir con su tiempo de vida. Así las antiguas civilizaciones se dieron cuenta que era necesario almacenar la información. Una de las primeras sistemas de escritura primitivos es el sistema sumerio, que se tallaba en piedra y en arcilla. 
 
 <br>
@@ -65,5 +69,22 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
 </div>
 <br>
 
+### Surgimiento de las bases de datos
+
+> La bases de datos surgen en la transición a los medios digitales y posteriormente evolucionaría para su uso conjunto con la nube. Las bases de datos como tal son un conjunto de datos almacenados sistemáticamente que mediante programas y servidores facilitan su administración, gestión y uso. <br>
+> Tradicionalmente se reconocen 2 tipos de bases de Datos:<br>
+> -Relacionales: En la industria hay varias compañías dedicadas a ser manejadoras de bases de datos relacionales como SQL Server, Oracle, MariaDB, entre otras.<br>
+> -No relacionales: Todavía están avanzando y existen ejemplos muy distintos como cassandra, elasticsearch, neo4j, MongoDB, entre otras. 
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/7.png" width="250">
+  <h5>SQL vs noSQL</h5>
+</div>
+<br>
+
+> Sin embargo tambie podemos clasificar ciertas bases de datos de acuerdos al tipo de sus servicios:
+> -Auto administrados: Es la base de datos que instalas tú y te encargas de actualizaciones, mantenimiento, etc.
+> -Administrados: Servicios que ofrecen las nubes modernas como Azure y no debes preocuparte por mantenimiento o actualizaciones.
 
 
