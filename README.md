@@ -125,4 +125,49 @@ Regla 12: La regla de la no subversión. | a) La base de datos no permitirá que
 
 ## Entidades y atributos
 
+>Entidad: Es algo similar a un objeto (revisar progrmación orientada a objetos), la diferencia con estos últimos, es que una entidad solo se refiere a los datos, en cambio un objeto se refiere a datos y los métodos (o funciones) como tal que controlan estos datos. En bases de datos, una entidad es cuando abstraemos un objeto de la vida real. Al igual que los obejtos las entidades poseen atributos ligados a si, que son las cosas que los hacen ser una entidad. Por convención se diagraman dentro de cuadrados y por además se ponen en plural.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/9.png" width="250">
+  <h5>Entidad "laptops"</h5>
+</div>
+<br>
+
+>Atributos: Son las características que podemos proporcionarles a una entidad, y que por convención se representan con ovalos. Existen ciertos atributos especiales a los que se les desgina de forma particular:
+
+ATRIBUTOS  | Descripción
+------------- | -------------
+Multivaluado | Puede poseer multiples valores (ejemplo: 4 valores diferentes par el atributo "llantas" de la entidad "automóviles").
+Compuestos | Los cuales están compuestos por otros atributos (ejemplo: para la entidad "laptos" el atributo "metodos de entrada " esta compuesto por el atributo "trackpad" y "teclado"). 
+Especiales (almacenados y derivados)| Que puedes representarse con líneas punteadas (ejemplo: antiguedad o edad de una persona, se puede primero determinar en la misma base de datos la fecha de nacimiento y cuando la edad sea desfasada, se actualiza automáticamente a partir de su fecha de nacimiento.)
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/10.png" width="250">
+  <h5>Atributos de la entidad "laptops"</h5>
+</div>
+<br>
+
+> Pero quizá los atributos mas importantes,sean los denominados los ATRIBUTOS LLAVES son aquellos que identifican a la entidad y no pueden ser repetidos. Se representan con un subrayado. Existen principalemnte 2: <br>
+> -Naturales: son inherentes al objeto como el número de serie. <br>
+> -Clave artificial: no es inherente al objeto y se asigna de manera arbitraria.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/11.png" width="250">
+  <h5>Atributo llave "Student id"</h5>
+</div>
+<br>
+
+> Finalmente debemos conocer que las entidades pueden ser <br>
+> -Entidades fuertes: Son entidades que pueden sobrevivir por si solo. Al leer la tabla sabes que son las entidades (se encierra en un recuadro). <br>
+> -Entidades débiles: No puede existir sin una entidad fuerte. Al leer la tabla no puedes saber que son las entidades (se encierra en un recuadro doble). En esto podemos diferenciar 2 subtipos: las **Identidades Débiles por Identidad** (no se diferencian entre sí más que por la clave de su identidad fuerte) y las **Identidades Débiles por Existencia** (que se les asigna una clave propia, pero su existencia sigue siendo dependiente de una fuerte).
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/12.png" width="350">
+  <h5>Resumen representativo de entidades y atributos</h5>
+</div>
+<br>
 
