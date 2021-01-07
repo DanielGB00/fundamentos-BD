@@ -180,7 +180,7 @@ Especiales (almacenados y derivados)| Que puedes representarse con líneas punte
 > -Primer paso: Identificar las entidades.
 <br>
 <div align="center"> 
-  <img src="Imágenes/13.png" width="350">
+  <img src="Imágenes/13.webp" width="350">
   <h5>Las Entidades del Platziblog</h5>
 </div>
 <br>
