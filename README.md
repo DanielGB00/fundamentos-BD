@@ -26,6 +26,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Relaciones](#Relaciones)
     - [Tipos de cardinalidad](#Tipos-de-cardinalidad)
     - [Cardinalidad muchos a muchos](#Cardinalidad-muchos-a-muchos)
+  - [Diagrama ER](#Diagrama-ER)
 
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
