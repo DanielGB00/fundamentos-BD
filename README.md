@@ -24,6 +24,8 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Entidades y atributos](#Entidades-y-atributos)
   - [Entidades del Platziblog](#Entidades-del-Platziblog)
   - [Relaciones](#Relaciones)
+    - [Tipos de cardinalidad](#Tipos-de-cardinalidad)
+    - [Cardinalidad muchos a muchos](#Cardinalidad-muchos-a-muchos)
 
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
@@ -215,6 +217,8 @@ Especiales (almacenados y derivados)| Que puedes representarse con líneas punte
 
 > Y para comprender mejor cuántos de un lado pertenecen a cuántos del otro lado, surge el concepto de **CARDINALIDAD**. La cual es una propiedad de las relaciones que indica la cantidad y correspondencia con la que puede estar relacionada una entidad. 
 
+### Tipos de cardinalidad
+
 TIPOS DE CARDINALIDAD | Descripción
 ------------- | -------------
 Uno-Uno (1:1) | Significa que cada entidad de la primera relación se va a relacionar con una entidad de la segunda relación y viceversa.
@@ -247,4 +251,14 @@ Muchas-Muchas (N:N) | Las entidades de ambas relaciones pueden asociarse con var
 <div align="center"> 
   <img src="Imágenes/20.png" width="350">
   <h5> Cardinalidad 1:N </h5>
+</div>
+
+### Cardinalidad muchos a muchos
+
+> La cardinalidad muchos a muchos es una de las cardinalidades mas especiales y que mas retos deberemos ir resolviendo a lo largo del desarrollo de una base de datos. *(Nota: En la representación grafica, se puede añidir una barra verticar a cada lado que simboliza que la relación es estricta, osea que SIEMPRE hay muchos a un lado y muchos al otro. Pero se usa para casos muy particulares).*
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/21.png" width="350">
+  <h5> Cardinalidad N:N </h5>
 </div>
