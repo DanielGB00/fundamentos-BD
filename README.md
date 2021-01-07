@@ -27,6 +27,12 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
     - [Tipos de cardinalidad](#Tipos-de-cardinalidad)
     - [Cardinalidad muchos a muchos](#Cardinalidad-muchos-a-muchos)
   - [Diagrama ER](#Diagrama-ER)
+  - [Tipos de datos y constraints](Tipos-de-datos-y-constraints)
+    - [Datos de texto](#Datos-de-texto)
+    - [Datos numéricos](#Datos-numéricos)
+    - [Datos de fecha y hora](#Datos-de-fecha-y-hora)
+    - [Datos lógicos](#Datos-lógicos)
+    - [Los constraints](#Los-constraints)
 
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
@@ -284,3 +290,64 @@ Muchas-Muchas (N:N) | Las entidades de ambas relaciones pueden asociarse con var
   <h5> Diagramming Convention Techniques </h5>
 </div>
 
+## Tipos de datos y constraints
+
+Para llevar a la práctica un diagrama debemos ir más allá y darle detalle con parámetros, convirtiendo nuestro Diagrama ER en un Diagrama Físico, pero para poder desarrollarlo primero debemos comprende 2 conceptos: **los tipos de datos** y **los constraints**
+
+### Datos de texto
+
+Datos tipo texto | Descripción
+------------- | -------------
+Char(n) | Permite almacenar caracteres y cadenas de texto. Este tipo de dato reserva un espacio de memoria del número de caracteres que va a ser ocupado.
+Varchar(n) | Al igual que char, este reserva espacio en la memoria. Su diferencia radica en que este reserva un mínimo espacio de memoria, y a partir de esta va creciendo o encogiéndose, es eficiente cuando desconocés cual será el tamaño de tu cadena de texto (Su limite es de 255 caracteres).
+Text | Su función es guardar cadenas de texto que sean muy grandes.
+
+### Datos numéricos
+
+Datos numéricos | Descripción
+------------- | -------------
+Integer | Número que no tiene punto decimal, se usa para declarar un tipo de dato entero que puede ser usado para hacer operaciones. Al usar este tipo de dato nuestra base de datos sabrá que estamos hablando de número y no solo de un simple carácter.
+Bigint | Subtipo de integer, nos sirve para declarar números muy grandes.
+Smallint | Subtipo de integer, nos para declarar números muy pequeños (99 o menos).
+Decimal (n, s) y Numeric (n, s) | Tienen dos parámetros (n y s, en este ejemplo). La primera entrada es para números enteros, y la segunda entrada es para números decimales. Nos sirve para hacer operaciones mas precisas.
+
+### Datos de fecha y hora
+> Esta clase de tipos de datos es muy peculiar ya que nos ayuda internamente a tener una bitácora de nuestra base de datos.
+
+Datos de fecha y hora | Descripción
+------------- | -------------
+Date | Solo contiene la fecha (año, mes y día).
+Time | Solo contiene la hora.
+Datetime | Es una mezcla de los dos primeros, contiene fecha y hora.
+Timestamp | Es el número de segundos que ha transcurrido desde que tu archivo fue creado. En otras palabras, podría decirse que es un medidor de tiempo.
+
+### Datos lógicos
+
+Datos lógicos | Descripción
+------------- | -------------
+Booleano | Este solo puede tener dos valores, funciona como un tipo de dato binario. Es usado de manera discriminatoria para hacer validaciones.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/23.png" width="450">
+  <h5> Tipos de datos </h5>
+</div>
+
+### Los constraints
+> Por su lado los contraints o restricciones son los tipos de reglas que vas a permitir que tenga tu base de datos. Y son:
+
+Constraints | Descripción
+------------- | -------------
+Not null | Se asegura que tu columna no tenga valores nulos.
+Unique | Asegura que cada valor en tu columna no se repita. (ejemplo: el email)
+Primary Key o Llave primaria | Es una etiqueta muy importante, es una combinación entre not null y unique. **Es el constraint que nos permite hacer relaciones entre distintas entidades.**
+Foreign Key o Llave foránea | Es el otro lado de una primary key, cuando queremos juntar dos tablas y decir que estan relacionadas entre si, lo que va a suceder es la primary key de una de las tablas se añadirá como foreign key de la otra.
+Check | Algunas bases de datos removieron este tipo de contraints, pero las que lo conservan son muy potentes. Tiene la función de permitir que añadamos las reglas que queramos a nuestra base de datos.
+Default | Coloca un valor por defecto cuando no hay un valor especificado.
+Index | Se crea por columna, su función es hacer búsquedas con mayor rapidez. Su única desventaja es que suele volverse lenta cada vez que se añaden nuevos registros. (No recomendada en tablas donde escribimos muchos nuevos registros)
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/24.png" width="450">
+  <h5> Los constraints </h5>
+</div>
