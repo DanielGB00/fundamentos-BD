@@ -197,7 +197,54 @@ Especiales (almacenados y derivados)| Que puedes representarse con líneas punte
   <h5> Atributos de entidad "Usuarios"</h5>
 </div>
 <br>
+
 > Una recomendación importante que es que no utilicemos el correo del usuario como id. Es mejor generar un id independiente para cada usuario puesto que a pesar de que email es único, limitará la identificación cuando el usuario quiera cambiar su email.
 
 
 ## Relaciones
+
+> Las relaciones, clasifcamente son representadas por un rombo. Sirven para poder ligar o unir nuestras diferentes entidades. Por convención las relaciones son verbos que conectan entidades. <br>
+> *NOTA:Los atributos multivaluados (ejm. discos duros),pueden relacionarse de diversas formas con el resto de entidades. Por ello, se suele convertilos a entidad separadas, a este proceso de se le denomina "normalizar" (se explicará luego).*
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/16.png" width="350">
+  <h5> Atributos de entidad "Usuarios"</h5>
+</div>
+<br>
+
+> Y para comprender mejor cuántos de un lado pertenecen a cuántos del otro lado, surge el concepto de **CARDINALIDAD**. La cual es una propiedad de las relaciones que indica la cantidad y correspondencia con la que puede estar relacionada una entidad. 
+
+TIPOS DE CARDINALIDAD | Descripción
+------------- | -------------
+Uno-Uno (1:1) | Significa que cada entidad de la primera relación se va a relacionar con una entidad de la segunda relación y viceversa.
+Cero-Uno (0:1) | Esta cardinalidad aveces se debate, y se sugiere denominarlo de 1 a 1 opcional. Con esto nos referimos a que puede existir la opción de que no exista uno de los datos. 
+Cero-Muchos (0:N) | Esta cardinalidad igualmente se debate, y se sugiere denominarlo de 1 a N opcional. Con esto nos referimos a que puede existir la opción de que no exista uno de los datos. 
+Una-Muchas (1:N) | Las entidades de la relación r1 se pueden relacionar con varias entidades de la relación r2. Pero las entidades de la relación r2 solo pueden asociarse con una entidad de r1. 
+Muchas-Una (N:1) | Las entidades de r1 solo pueden asociarse con una entidad de r2. Mientras que las entidades de r2 pueden asociarse con varias entidades contenidas en r1.
+Muchas-Muchas (N:N) | Las entidades de ambas relaciones pueden asociarse con varias entidades de la contraria.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/17.png" width="350">
+  <h5> Cardinalidad 1:1 </h5>
+</div>
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/18.png" width="350">
+  <h5> Cardinalidad 0:1 </h5>
+</div>
+<br>
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/19.png" width="350">
+  <h5> Cardinalidad 0:N </h5>
+</div>
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/20.png" width="350">
+  <h5> Cardinalidad 1:N </h5>
+</div>
