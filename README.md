@@ -86,7 +86,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/7.png" width="250">
+  <img src="Imágenes/7.png" width="550">
   <h5>SQL vs noSQL</h5>
 </div>
 <br>
@@ -262,3 +262,24 @@ Muchas-Muchas (N:N) | Las entidades de ambas relaciones pueden asociarse con var
   <img src="Imágenes/21.png" width="350">
   <h5> Cardinalidad N:N </h5>
 </div>
+
+## Diagrama ER
+
+> Un diagrama Entidad-Relación es como un mapa y nos ayuda a entender cuáles son las entidades con las que vamos a trabajar, cuáles son sus relaciones y qué papel van a jugar en las aplicaciones de la base de datos. <br>
+
+> *Nota:Una página muy util para elaborar estos diagramas es [DIAGRAMS](https://app.diagrams.net)*
+
+<br>
+<div align="center"> 
+  <img src="Diagramas/d1.png" width="350">
+  <h5> Diagrama E:R de Platziblog </h5>
+</div>
+
+> Debemos recordar que existen varios métodos para representar una misma relación. A estos diversos metodos se les conoce como: **Diagramming Convention Techniques**
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/22.png" width="450">
+  <h5> Diagramming Convention Techniques </h5>
+</div>
+
