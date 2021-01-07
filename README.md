@@ -7,7 +7,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
 
 <p>att. D.A.G.B </p>
 <p>Creación del Repositorio: 05/01/2021</p>
-<p>Ultima actualización: 05/01/2021</p>
+<p>Ultima actualización: 07/01/2021</p>
 
 <div align="center"> <img src="Imágenes/1_logo.png" alt="" width="350px" height="350px"> </div>
 
@@ -22,6 +22,9 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
 - [INTRODUCCIÓN A LAS BASES DE DATOS RELACIONALES](#INTRODUCCIÓN-A-LAS-BASES-DE-DATOS-RELACIONALES)
   - [Historia de las RDB](#Historia-de-las-RDB)
   - [Entidades y atributos](#Entidades-y-atributos)
+  - [Entidades del Platziblog](#Entidades-del-Platziblog)
+  - [Relaciones](#Relaciones)
+
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
 
@@ -171,3 +174,30 @@ Especiales (almacenados y derivados)| Que puedes representarse con líneas punte
 </div>
 <br>
 
+## Entidades del Platziblog
+
+> Durante el curso desarrollares un proyecto completo de inicio a fin basandonos en un Platziblog. Este proyecto nos presenta un contexto familiar y nos representará retos muy interesantes. <br>
+> -Primer paso: Identificar las entidades.
+<br>
+<div align="center"> 
+  <img src="Imágenes/13.png" width="350">
+  <h5>Las Entidades del Platziblog</h5>
+</div>
+<br>
+
+> Segundo paso: Pensar en los atributos.
+<br>
+<div align="center"> 
+  <img src="Imágenes/14.png" width="350">
+  <h5> Atributos de entidad "Posts"</h5>
+</div>
+<br>
+<div align="center"> 
+  <img src="Imágenes/15.png" width="350">
+  <h5> Atributos de entidad "Usuarios"</h5>
+</div>
+<br>
+> Una recomendación importante que es que no utilicemos el correo del usuario como id. Es mejor generar un id independiente para cada usuario puesto que a pesar de que email es único, limitará la identificación cuando el usuario quiera cambiar su email.
+
+
+## Relaciones
