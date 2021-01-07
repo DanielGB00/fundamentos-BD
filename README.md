@@ -27,7 +27,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
     - [Tipos de cardinalidad](#Tipos-de-cardinalidad)
     - [Cardinalidad muchos a muchos](#Cardinalidad-muchos-a-muchos)
   - [Diagrama ER](#Diagrama-ER)
-  - [Tipos de datos y constraints](Tipos-de-datos-y-constraints)
+  - [Tipos de datos y constraints](#Tipos-de-datos-y-constraints)
     - [Datos de texto](#Datos-de-texto)
     - [Datos numéricos](#Datos-numéricos)
     - [Datos de fecha y hora](#Datos-de-fecha-y-hora)
