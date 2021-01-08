@@ -44,7 +44,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Create view y DDL alter](#Create-view-y-DDL-alter)
   - [DDL drop](#DDL-drop)
   - [DML](#DML)
-  - [DCL Y TCL](DCL-Y-TCL)
+  - [DCL Y TCL](#DCL-Y-TCL)
   - [¿Que es standar en SQL?](#¿Que-es-standar-en-SQL?)
   - [Creando Tablas](#Creando-tablas)
     - [Tablas independientes](#Tablas-independientes)
@@ -617,7 +617,7 @@ ROLLBACK | Utilizado para deshacer la modificación que hice desde el último CO
 
 #### Tablas independientes
 
-> Una buena práctica es comenzar creando las entidades que no tienen una llave foránea. Generalmente en los nombres de bases de datos se evita usar eñes o acentos para evitar problemas en los manejadores de las bases de datos.
+> Ahora empezaremos a plasmar la BD de Platziblog segun nuestro Diagrama Físico. Una buena práctica es comenzar creando las entidades que no tienen una llave foránea. A estas tablas se les denomina, tablas independientes. Generalmente en los nombres de bases de datos se evita usar eñes o acentos para evitar problemas en los manejadores de las bases de datos.
 
     /*creacion de base de datos PlatziBlog*/
     create database PlatziBlog default character set utf8 ;
@@ -653,4 +653,26 @@ ROLLBACK | Utilizado para deshacer la modificación que hice desde el último CO
 
 #### Tablas dependientes
 
+> Ahora es momento de crear las entidades que si tienen una llave foránea. A estas tablas se les denomina, tablas dependientes.
+
+    ALTER TABLE `PlatziBlog`.`posts` 
+    ADD INDEX `usuario_posts_fk_idx` (`usuario_id` ASC) VISIBLE;
+    ;
+    ALTER TABLE `PlatziBlog`.`posts` 
+    ADD CONSTRAINT `usuario_posts_fk`
+      FOREIGN KEY (`usuario_id`)
+      REFERENCES `PlatziBlog`.`usuarios` (`id`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION;
+  
+    ALTER TABLE `PlatziBlog`.`posts` 
+    ADD INDEX `categorias_posts_fk_idx` (`categoria_id` ASC) VISIBLE;
+    ;
+    ALTER TABLE `PlatziBlog`.`posts` 
+    ADD CONSTRAINT `categorias_posts_fk`
+      FOREIGN KEY (`categoria_id`)
+      REFERENCES `PlatziBlog`.`categorias` (`id`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION;
+  
 #### Tablas transitivas
