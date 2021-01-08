@@ -39,6 +39,16 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [RDB ¿Qué?](#RDB-¿Qué?)
   - [Clientes gráficos](#Clientes-gráficos)
   - [Servicios administrados](#Servicios-administrados)
+- [SQL hasta en la sopa](#SQL-hasta-en-la-sopa)
+  - [Historia del SQL](#Historia-del-SQL)
+  - [Create view y DDL alter](#Create-view-y-DDL-alter)
+  - [DDL drop](#DDL-drop)
+  - [DML](#DML)
+  - [¿Que es standar en SQL?](#¿Que-es-standar-en-SQL?)
+  - [Creando Tablas](#Creando-tablas)
+    - [Tablas independientes](#Tablas-independientes)
+    - [Tablas dependientes](#Tablas-dependientes)
+    - [Tablas transitivas](#Tablas-transitivas)
   
 
 
@@ -447,3 +457,22 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
   <h5> DB services en AWS </h5>
 </div>
 
+## SQL hasta en la sopa
+
+### Historia del SQL
+
+### Create view y DDL alter
+
+### DDL drop
+
+### DML
+
+### ¿Que es standar en SQL?
+
+### Creando Tablas
+
+#### Tablas independientes
+
+#### Tablas dependientes
+
+#### Tablas transitivas
