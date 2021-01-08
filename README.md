@@ -37,8 +37,8 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
     - [Normalizacion de Platziblog](#Normalizacion-de-Platziblog)
 - [RDBMS (MySQL)](#RDBMS-(MySQL))
   - [RDB ¿Qué?](#RDB-¿Qué?)
-  - [Clientes gráficos](#Clientes gráficos)
-  - [Servicios administrados](#Servicios administrados)
+  - [Clientes gráficos](#Clientes-gráficos)
+  - [Servicios administrados](#Servicios-administrados)
   
 
 
@@ -420,4 +420,21 @@ RDBMS significa Relational Database Management System o sistema manejador de bas
 
 ### Clientes gráficos
 
+> Los clientes graficos son herramientas gráficas que nos ayudan a representar y ver el funcionamiento de una base de datos internamente.Como parte de las herramientas que vienen en Mysql viene ya instalado, un cliente grafico llamado MySQL Workbench, una aplicación creada por los propios desarrolladores de MySQL. Se trata de una herramienta visual muy completa que, además, es multiplataforma y se puede instalar en sistemas Windows, Linux y Mac. <br>
+
+> Sin embargo eisten otras opciones como: dbeaver, HeidiSql, Navicat, Wamp, Xamp, DataGrip, Sequel Pro, PhpMyAdmin, etc.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/31.png" width="450">
+  <h5> MySQL Workbench </h5>
+</div>
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/32.png" width="450">
+  <h5> Creando una base de datos desde el cliente gráfico </h5>
+</div>
+
 ### Servicios administrados
+
