@@ -7,7 +7,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
 
 <p>att. D.A.G.B </p>
 <p>Creación del Repositorio: 05/01/2021</p>
-<p>Ultima actualización: 07/01/2021</p>
+<p>Ultima actualización: 08/01/2021</p>
 
 <div align="center"> <img src="Imágenes/1_logo.png" alt="" width="350px" height="350px"> </div>
 
@@ -453,15 +453,85 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/33.png" width="350">
+  <img src="Imágenes/33.png" width="500">
   <h5> DB services en AWS </h5>
 </div>
 
 ## SQL hasta en la sopa
 
 ### Historia del SQL
+>Debido a la necesidad de la época por realizar consultas de datos de una forma más organizada se crea SQL como una especie de lenguaje estándar para hacer este proceso en los distintos manejadores de datos. <br>
+
+> Asi suge SQL (Structured Query Language), el cual es un lenguaje de dominio específico utilizado en programación, diseñado para administrar, y recuperar información de sistemas de gestión de bases de datos relacionales. Su objetivo es hacer un solo lenguaje para consultar cualquier manejador de bases de datos volviéndose un gran estándar. SQL es un estándar aceptado por ANSI (Instituto Nacional Estadounidense de Estándares).
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/34.png" width="350">
+  <h5> SQL </h5>
+</div>
+
+
+> Ahora existe el NOSQL (Not Only Structured Query Language) que significa que no sólo se utiliza SQL en las bases de datos no relacionales. Pero siguen usando SQL como base pero no es exclusivo.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/35.png" width="350">
+  <h5> SQL vs noSQL </h5>
+</div>
+
+> *NOTA1: Un **lenguaje de dominio específico** es como un lenguaje de programación pero dedicado a resolver un problema en particular. Por lo tanto SQL, al igual que HTML o CSS, no es un lenguaje de programación como tal, pero es un lenguaje que nos permite estructurar datos, asi como HTML es un lenguaje de marcado de texto y CSS un lenguaje para diseñar interfaces.* <br>
+
+> *NOTA2: **PL/SQL** es un lenguaje de programación de la base de datos de Oracle, el nombre viene de Procedural Language/Structured Query Language y **T-SQL** es un lenguaje de programación de la base de datos de Microsoft SQL Server y el nombre viene de TRANSACT-SQL*
+
+> Si nos referimos a un SQL tiene grandes sublenguajes:
+
+> **1. DDL (Data Definition Language)**: Permite crear y modificar la estructura de una base de datos. Posee los siguientes comandos:
+
+Comandos | Descripción
+------------- | -------------
+CREATE | Utilizado para crear nuevas tablas, campos e índices.
+ALTER | Utilizado para modificar las tablas agregando campos o cambiando la definición de los campos.
+DROP | Empleado para eliminar tablas e índices.
+TRUNCATE | Empleado para eliminar todos los registros de una tabla.
+COMMENT | Utilizado para agregar comentarios al diccionario de datos.
+RENAME | Tal como su nombre lo indica es utilizado para renombrar objetos.
+
+    CREATE SCHEMA `platziblog` ;
+
+> Podemos identificar 3 objetos que manipularemos con el lenguaje DDL: <br>
+> -Database o bases de datos. <br>
+> -Table o tablas. Son la traducción a SQL de las entidades. <br>
+> -View o vistas: Se ofrece la proyección de los datos de la base de datos de forma entendible.
 
 ### Create view y DDL alter
+
+> Primero vamos a crear la tabla people con sus atributos
+
+    CREATE TABLE `platziblog`.`people` (
+        `person_id` INT NOT NULL AUTO_INCREMENT,
+        `last_name` VARCHAR(255) NULL,
+        `first_name` VARCHAR(255) NULL,
+        `address` VARCHAR(255) NULL,
+        `city` VARCHAR(255) NULL,
+    PRIMARY KEY (`person_id`));
+
+> Ahora vamos a agregarle datos
+
+    INSERT INTO `platziblog`.`people` (`person_id`, `last_name`, `first_name`, `address`, `city`) 
+    VALUES ('1', 'Vásquez', 'Israel', 'Calle Famosa Num 1', 'México'),
+	       ('2', 'Hernández', 'Mónica', 'Reforma 222', 'México'),
+	       ('3', 'Alanis', 'Edgar', 'Central 1', 'Monterrey');
+         
+> Ahora crearemos una vista de dicha tabla
+
+    USE `platziblog`;
+    CREATE  OR REPLACE VIEW `new_view` AS
+    SELECT * FROM platziblog.people;
+
+> Ahora vamos modificar sus datos con ALTER
+
+    ALTER TABLE `Platziblog`.`people` 
+    ADD COLUMN `date_of_birth` DATETIME NULL AFTER `city`;
 
 ### DDL drop
 
