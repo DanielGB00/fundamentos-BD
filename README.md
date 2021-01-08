@@ -34,6 +34,8 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
     - [Datos lógicos](#Datos-lógicos)
     - [Los constraints](#Los-constraints)
   - [La Normalización](#La-Normalización)
+    - [Normalizacion de Platziblog](#Normalizacion-de-Platziblog)
+  
 
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
@@ -388,4 +390,12 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 > -Anomalías de borrado: Pérdidas no intencionadas de datos debido a que se han borrado otros datos. <br>
 > -Anomalías de inserción: Imposibilidad de adicionar datos en la base de datos debido a la ausencia de otros datos.
 
+### Normalizacion de Platziblog
 
+> Ahora aplicaremos la normalización a nuestro proyecto de Platziblog
+
+<br>
+<div align="center"> 
+  <img src="Diagramas/d2.png" width="550">
+  <h5> Diagrama Platziblog </h5>
+</div>
