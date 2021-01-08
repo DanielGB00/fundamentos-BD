@@ -483,7 +483,7 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 
 > *NOTA2: **PL/SQL** es un lenguaje de programación de la base de datos de Oracle, el nombre viene de Procedural Language/Structured Query Language y **T-SQL** es un lenguaje de programación de la base de datos de Microsoft SQL Server y el nombre viene de TRANSACT-SQL*
 
-> Si nos referimos a un SQL tiene grandes sublenguajes:
+> Es improtante comprender que dentro del SQL como lenguaje de domio específico podemos hallar grandes sublenguajes:
 
 > **1. DDL (Data Definition Language)**: Permite crear y modificar la estructura de una base de datos. Posee los siguientes comandos:
 
@@ -495,6 +495,8 @@ DROP | Empleado para eliminar tablas e índices.
 TRUNCATE | Empleado para eliminar todos los registros de una tabla.
 COMMENT | Utilizado para agregar comentarios al diccionario de datos.
 RENAME | Tal como su nombre lo indica es utilizado para renombrar objetos.
+
+> Iniciaremos creando una tabla
 
     CREATE SCHEMA `platziblog` ;
 
@@ -528,14 +530,48 @@ RENAME | Tal como su nombre lo indica es utilizado para renombrar objetos.
     CREATE  OR REPLACE VIEW `new_view` AS
     SELECT * FROM platziblog.people;
 
-> Ahora vamos modificar sus datos con ALTER
+> Ahora vamos modificar sus datos, crearemos una columna con ALTER 
 
     ALTER TABLE `Platziblog`.`people` 
     ADD COLUMN `date_of_birth` DATETIME NULL AFTER `city`;
+    
+    ALTER TABLE `platziblog`.`people` 
+    DROP COLUMN `date_of_birth`;
 
 ### DDL drop
 
+> Está puede ser la sentencia ¡más peligrosa. Sobre todo cuando somos principiantes. Básicamente borra o desaparece de nuestra base de datos algún elemento. Podemos borrar desde una tabla hasta toda la base de datos completa:
+
+    DROP TABLE `platziblog`.`people`;
+    DROP DATABASE `platziblog`;
+
 ### DML
+
+> **2. DML (Data Manipulation Language)**: A diferencia de DDL que esta orientado a la estrucutra de la BD, el DML esta orientado al contenido de la BD. Permite recuperar, almacenar, modificar, eliminar, insertar y actualizar datos de una base de datos. Posee los siguientes comandos:
+
+Comandos | Descripción
+------------- | -------------
+SELECT | Utilizado para consultar registros de la base de datos que satisfagan un criterio determinado.
+INSERT | Utilizado para cargar de datos en la base de datos en una única operación.
+UPDATE | Utilizado para modificar los valores de los campos y registros especificados
+DELETE | Utilizado para eliminar registros de una tabla de una base de datos.
+
+> Primero intentaremos insertar nuevos datos
+
+    INSERT INTO `platziblog`.`people` (`last_name`, `first_name`, `address`) 
+    VALUES ('Hernández', 'Laura', 'Calle 12');
+
+> Ahora cambiaremos algunos datos   
+    
+    UPDATE `platziblog`.`people` SET `last_name` = 'Chavez', `city` = 'Mérida' WHERE (`person_id` = '1');
+
+> Ahora borraremos contenido de la tabla con DELETE
+
+    DELETE FROM `platziblog`.`people` WHERE (`person_id` = '1');
+
+> Finalmente realizaremos una consulta a nuestra base de datos
+
+    SELECT first_name, last_name FROM people;
 
 ### ¿Que es standar en SQL?
 
