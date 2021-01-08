@@ -35,6 +35,10 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
     - [Los constraints](#Los-constraints)
   - [La Normalización](#La-Normalización)
     - [Normalizacion de Platziblog](#Normalizacion-de-Platziblog)
+- [RDBMS (MySQL)](#RDBMS-(MySQL))
+  - [RDB ¿Qué?](#RDB-¿Qué?)
+  - [Clientes gráficos](#Clientes gráficos)
+  - [Servicios administrados](#Servicios administrados)
   
 
 
@@ -293,11 +297,11 @@ Muchas-Muchas (N:N) | Las entidades de ambas relaciones pueden asociarse con var
   <h5> Diagramming Convention Techniques </h5>
 </div>
 
-## Tipos de datos y constraints
+### Tipos de datos y constraints
 
 Para llevar a la práctica un diagrama debemos ir más allá y darle detalle con parámetros, convirtiendo nuestro Diagrama ER en un Diagrama Físico, pero para poder desarrollarlo primero debemos comprende 2 conceptos: **los tipos de datos** y **los constraints**
 
-### Datos de texto
+#### Datos de texto
 
 Datos tipo texto | Descripción
 ------------- | -------------
@@ -305,7 +309,7 @@ Char(n) | Permite almacenar caracteres y cadenas de texto. Este tipo de dato res
 Varchar(n) | Al igual que char, este reserva espacio en la memoria. Su diferencia radica en que este reserva un mínimo espacio de memoria, y a partir de esta va creciendo o encogiéndose, es eficiente cuando desconocés cual será el tamaño de tu cadena de texto (Su limite es de 255 caracteres).
 Text | Su función es guardar cadenas de texto que sean muy grandes.
 
-### Datos numéricos
+#### Datos numéricos
 
 Datos numéricos | Descripción
 ------------- | -------------
@@ -314,7 +318,7 @@ Bigint | Subtipo de integer, nos sirve para declarar números muy grandes.
 Smallint | Subtipo de integer, nos para declarar números muy pequeños (99 o menos).
 Decimal (n, s) y Numeric (n, s) | Tienen dos parámetros (n y s, en este ejemplo). La primera entrada es para números enteros, y la segunda entrada es para números decimales. Nos sirve para hacer operaciones mas precisas.
 
-### Datos de fecha y hora
+#### Datos de fecha y hora
 > Esta clase de tipos de datos es muy peculiar ya que nos ayuda internamente a tener una bitácora de nuestra base de datos.
 
 Datos de fecha y hora | Descripción
@@ -324,7 +328,7 @@ Time | Solo contiene la hora.
 Datetime | Es una mezcla de los dos primeros, contiene fecha y hora.
 Timestamp | Es el número de segundos que ha transcurrido desde que tu archivo fue creado. En otras palabras, podría decirse que es un medidor de tiempo.
 
-### Datos lógicos
+#### Datos lógicos
 
 Datos lógicos | Descripción
 ------------- | -------------
@@ -336,7 +340,7 @@ Booleano | Este solo puede tener dos valores, funciona como un tipo de dato bina
   <h5> Tipos de datos </h5>
 </div>
 
-### Los constraints
+#### Los constraints
 > Por su lado los contraints o restricciones son los tipos de reglas que vas a permitir que tenga tu base de datos. Y son:
 
 Constraints | Descripción
@@ -355,7 +359,7 @@ Index | Se crea por columna, su función es hacer búsquedas con mayor rapidez. 
   <h5> Los constraints </h5>
 </div>
 
-## La Normalización
+### La Normalización
 
 > El proceso de normalización es un estándar que consiste, básicamente, en un proceso de conversión de las relaciones entre las entidades. Es útil para separar la información, minimizar la redundancia de los datos, para que la actualización de los datos sea más sencilla y la integridad de los datos se conserve. Esto obedece a las 12 reglas de Codd y nos permiten separar componentes en la base de datos. Identificamos para ello 4 reglas denominadas **Formas normales**.
 
@@ -390,7 +394,7 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 > -Anomalías de borrado: Pérdidas no intencionadas de datos debido a que se han borrado otros datos. <br>
 > -Anomalías de inserción: Imposibilidad de adicionar datos en la base de datos debido a la ausencia de otros datos.
 
-### Normalizacion de Platziblog
+#### Normalizacion de Platziblog
 
 > Ahora aplicaremos la normalización a nuestro proyecto de Platziblog
 
@@ -402,3 +406,18 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 
 > *NOTA 01: Al normalizar aunque parezca que la información se multiplicó, en realidad la descompusimos de manera que a un sistema le sea fácil de reconocer y mantener la consistencia de los datos.* <br>
 > *NOTA 02: Algunos autores precisan una 5FN que hace referencia a que después de realizar esta normalización a través de uniones (JOIN) permita regresar a la data original de la cual partió.*
+
+## RDBMS (MySQL)
+
+### RDB ¿Qué?
+RDBMS significa Relational Database Management System o sistema manejador de bases de datos relacionales. Es un programa que se encarga de seguir las reglas de Codd y se puede utilizar de manera programática. Actúa como sistema que permite crear, editar y administrar una base de datos relacional. En su gran mayoría usan el Lenguaje de Consultas Estructuradas (SQL).
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/30.png" width="450">
+  <h5> Los constraints </h5>
+</div>
+
+### Clientes gráficos
+
+### Servicios administrados
