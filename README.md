@@ -410,7 +410,8 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 ## RDBMS (MySQL)
 
 ### RDB ¿Qué?
-RDBMS significa Relational Database Management System o sistema manejador de bases de datos relacionales. Es un programa que se encarga de seguir las reglas de Codd y se puede utilizar de manera programática. Actúa como sistema que permite crear, editar y administrar una base de datos relacional. En su gran mayoría usan el Lenguaje de Consultas Estructuradas (SQL).
+
+> RDBMS significa Relational Database Management System o sistema manejador de bases de datos relacionales. Es un programa que se encarga de seguir las reglas de Codd y se puede utilizar de manera programática. Actúa como sistema que permite crear, editar y administrar una base de datos relacional. En su gran mayoría usan el Lenguaje de Consultas Estructuradas (SQL).
 
 <br>
 <div align="center"> 
@@ -426,15 +427,23 @@ RDBMS significa Relational Database Management System o sistema manejador de bas
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/31.png" width="450">
+  <img src="Imágenes/31.png" width="350">
   <h5> MySQL Workbench </h5>
 </div>
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/32.png" width="450">
+  <img src="Imágenes/32.png" width="350">
   <h5> Creando una base de datos desde el cliente gráfico </h5>
 </div>
 
 ### Servicios administrados
+
+>Hoy en día muchas empresas ya no tienen instalados en sus servidores los RDBMS sino que los contratan a otras personas. Estos servicios administrados cloud te permiten concentrarte en la base de datos y no en su administración y actualización. Algunos muy famosos son AWS(de Amazon), GCP (Google Cloud Platform) o Azure (Microsoft).
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/33.png" width="350">
+  <h5> DB services en AWS </h5>
+</div>
 
