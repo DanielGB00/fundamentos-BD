@@ -33,6 +33,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
     - [Datos de fecha y hora](#Datos-de-fecha-y-hora)
     - [Datos lógicos](#Datos-lógicos)
     - [Los constraints](#Los-constraints)
+  - [La Normalización](#La-Normalización)
 
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
@@ -351,3 +352,40 @@ Index | Se crea por columna, su función es hacer búsquedas con mayor rapidez. 
   <img src="Imágenes/24.png" width="450">
   <h5> Los constraints </h5>
 </div>
+
+## La Normalización
+
+> El proceso de normalización es un estándar que consiste, básicamente, en un proceso de conversión de las relaciones entre las entidades. Es útil para separar la información, minimizar la redundancia de los datos, para que la actualización de los datos sea más sencilla y la integridad de los datos se conserve. Esto obedece a las 12 reglas de Codd y nos permiten separar componentes en la base de datos. Identificamos para ello 4 reglas denominadas **Formas normales**.
+
+Formas normales | Descripción
+------------- | -------------
+Primera forma normal (1FN) | **Atributos atómicos (Sin campos repetidos)** <br> Para un atributo sólo debe existir una columna, si surge la necesidad, no se debe crear otra columna (Esto porque si crees que con n columnas es suficiente, tarde que temprano necesitarás n+1) Sencillamente se añade un identificador y posteriormente se divide por filas.
+Segunda forma normal (2FN) | **Cumple 1FN y cada campo de la tabla debe depender de una clave única.** <br> Esto nos ayuda a tener datos más organizados, y distinguir entre si un atributo hace parte de una entidad, o si son dos entidades separadas relacionadas estrechamente.
+Tercera forma normal (3FN) | **Cumple 1FN, 2FN y los campos que no son clave no deben tener dependencias.** <br> Sí un dato de un atributo esta directamente relacionado con otro, para que al editar un dato, no deba editar otro campo y haya espacio a errores (porque alguno “se me olvidó”), se separa en una tabla diferente de esta manera la actualización de los datos es más limpia.
+Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se identifican por una clave única.** <br> Esta es usualmente útil cuándo se tiene una cardinalidad N:M, de muchos a muchos, y simplemente se crea una tabla especial para relacionar las claves únicas de las entidades.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/25.png" width="350">
+  <h5> Tabla sin normalizar </h5>
+
+  <img src="Imágenes/26.png" width="350">
+  <h5> 1FN </h5>
+
+  <img src="Imágenes/27.png" width="350">
+  <h5> 2FN </h5>
+
+  <img src="Imágenes/28.png" width="350">
+  <h5> 3FN </h5>
+
+  <img src="Imágenes/29.png" width="350">
+  <h5> 4FN </h5>
+</div>
+
+> Al normalizar evitanmos: <br>
+> -La redundancia de los datos: repetición de datos en un sistema. <br>
+> -Anomalías de actualización: Inconsistencias de los datos como resultado de datos redundantes y actualizaciones parciales. <br>
+> -Anomalías de borrado: Pérdidas no intencionadas de datos debido a que se han borrado otros datos. <br>
+> -Anomalías de inserción: Imposibilidad de adicionar datos en la base de datos debido a la ausencia de otros datos.
+
+
