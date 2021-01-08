@@ -44,6 +44,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Create view y DDL alter](#Create-view-y-DDL-alter)
   - [DDL drop](#DDL-drop)
   - [DML](#DML)
+  - [DCL Y TCL](DCL-Y-TCL)
   - [¿Que es standar en SQL?](#¿Que-es-standar-en-SQL?)
   - [Creando Tablas](#Creando-tablas)
     - [Tablas independientes](#Tablas-independientes)
@@ -572,12 +573,83 @@ DELETE | Utilizado para eliminar registros de una tabla de una base de datos.
 > Finalmente realizaremos una consulta a nuestra base de datos
 
     SELECT first_name, last_name FROM people;
+    
+### DCL Y TCL
+    
+> **2. DCL (Data Control Language)**: Permite crear roles, permisos e integridad referencial, así como el control al acceso a la base de datos.
+
+Comandos | Descripción
+------------- | -------------
+GRANT | Usado para otorgar privilegios de acceso de usuario a la base de datos.
+REVOKE | Utilizado para retirar privilegios de acceso otorgados con el comando GRANT.
+
+> **3. TCL (Transactional Control Language)**: Permite administrar diferentes transacciones que ocurren dentro de una base de datos.
+
+Comandos | Descripción
+------------- | -------------
+COMMIT | Empleado para guardar el trabajo hecho.
+ROLLBACK | Utilizado para deshacer la modificación que hice desde el último COMMIT.
 
 ### ¿Que es standar en SQL?
+
+> La utilidad más grande de SQL fue unificar la forma en la que pensamos y hacemos preguntas a un repositorio de datos. Ahora que nacen nuevas bases de datos igualmente siguen tomando elementos de SQL. Podemos afirmar que:
+> -SQL unificó la manera en que sea hacen preguntas a un repositorio de datos.
+> -Se convirtió en un standard util a la hora de usar bases de datos.
+> -Existen otros manejadores de datos como Oracle o PostgreSQL. Sin embargo, si escribimos en lenguaje SQL todos los manejadores funcionaran de manera similar.
+
+> Ejemplo: DDL y DML son exactamente las mismas para distintos manejadores de base de datos que tengan el standard SQL, existes algunos cambios sutiles que mas son funcionamiento interno del manejador de DB, por este motivo se puede ejecutar estos scripts por ejemplo en POsgresSQL y en MySQL
+
+    create TABLE people (
+	person_id int,
+    last_name varchar(255),
+    first_name varchar(255),
+    address varchar(255),
+    city varchar(255)
+    );
+    INSERT INTO people (last_name, first_name, address, ciyt)
+    VALUES ("Hernandez", "Laura", "Calle Rio Blanco", "Macas");
+
+    SELECT first_name, last_name
+    FROM people;
+
 
 ### Creando Tablas
 
 #### Tablas independientes
+
+> Una buena práctica es comenzar creando las entidades que no tienen una llave foránea. Generalmente en los nombres de bases de datos se evita usar eñes o acentos para evitar problemas en los manejadores de las bases de datos.
+
+    /*creacion de base de datos PlatziBlog*/
+    create database PlatziBlog default character set utf8 ;
+
+    /*linia para utilizar PlatziBlog*/
+    use PlatziBlog;
+
+    /*construccion de tablas independientes*/
+    create table categorias
+    (
+    id int not null auto_increment,
+    nom_categoria varchar(30) not null,
+    constraint primary key (id)
+    );
+
+    create table etiquetas
+    (
+    id int not null auto_increment,
+    nom_etiquetas varchar(30) not null,
+    constraint primary key (id)
+    );
+
+    create table usuarios 
+    (
+    id int not null auto_increment,
+    login varchar(30) not null,
+    pasword varchar(32) not null,
+    nickname varchar(40) not null,
+    email varchar(40) not null,
+    primary key (id),
+    unique key email_unique (email)
+    )
 
 #### Tablas dependientes
 
