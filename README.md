@@ -7,7 +7,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
 
 <p>att. D.A.G.B </p>
 <p>Creación del Repositorio: 05/01/2021</p>
-<p>Ultima actualización: 08/01/2021</p>
+<p>Ultima actualización: 09/01/2021</p>
 
 <div align="center"> <img src="Imágenes/1_logo.png" alt="" width="350px" height="350px"> </div>
 
@@ -50,8 +50,20 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
     - [Tablas independientes](#Tablas-independientes)
     - [Tablas dependientes](#Tablas-dependientes)
     - [Tablas transitivas](#Tablas-transitivas)
-  
-
+- [Consultas a una base de datos](#Consultas-a-una-base-de-datos)
+  - [¿Por qué las consultas son tan importantes?](#¿Por-qué-las-consultas-son-tan-importantes?)
+  - [Estructura básica de un Query](#Estructura-básica-de-un-Query)
+    - [SELECT](#SELECT)
+    - [FROM](#FROM)
+    - [Utilizando la sentencia FROM](#Utilizando-la-sentencia-FROM)
+    - [WHERE](#WHERE)
+    - [Utilizando la sentencia WHERE nulo y no nulo](#Utilizando-la-sentencia-WHERE-nulo-y-no-nulo)
+    - [GROUP BY](#GROUP-BY)
+    - [ORDER BY y HAVING](#ORDER-BY-y-HAVING)
+  - [El interminable agujero de conejo (Nested queries)](#El-interminable-agujero-de-conejo-(Nested-queries))
+  - [¿Cómo convertir una pregunta en un query SQL?](#¿Cómo-convertir-una-pregunta-en-un-query-SQL?)
+  - [Preguntándole a la base de datos](#Preguntándole-a-la-base-de-datos)
+  - [Consultando PlatziBlog](#Consultando-PlatziBlog)
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
 
@@ -600,14 +612,14 @@ DELETE | Utilizado para eliminar registros de una tabla de una base de datos.
 
 ### DCL Y TCL
     
-> **2. DCL (Data Control Language)**: Permite crear roles, permisos e integridad referencial, así como el control al acceso a la base de datos.
+> **3. DCL (Data Control Language)**: Permite crear roles, permisos e integridad referencial, así como el control al acceso a la base de datos.
 
 Comandos | Descripción
 ------------- | -------------
 GRANT | Usado para otorgar privilegios de acceso de usuario a la base de datos.
 REVOKE | Utilizado para retirar privilegios de acceso otorgados con el comando GRANT.
 
-> **3. TCL (Transactional Control Language)**: Permite administrar diferentes transacciones que ocurren dentro de una base de datos.
+> **4. TCL (Transactional Control Language)**: Permite administrar diferentes transacciones que ocurren dentro de una base de datos.
 
 Comandos | Descripción
 ------------- | -------------
@@ -782,3 +794,31 @@ No action | Si un usuario es eliminado/modificado, no se hará nada. Solo se rom
   <img src="Imágenes/43.png" width="550">
   <h5> Diagrama del Reverse Engineer </h5>
 </div>
+
+## Consultas a una base de datos
+
+### ¿Por qué las consultas son tan importantes?
+
+### Estructura básica de un Query
+
+#### SELECT
+
+#### FROM
+
+#### Utilizando la sentencia FROM
+
+#### WHERE
+
+#### Utilizando la sentencia WHERE nulo y no nulo
+
+#### GROUP BY
+
+#### ORDER BY y HAVING
+
+### El interminable agujero de conejo (Nested queries)
+
+### ¿Cómo convertir una pregunta en un query SQL?
+
+### Preguntándole a la base de datos
+
+### Consultando PlatziBlog
