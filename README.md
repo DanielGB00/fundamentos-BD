@@ -1380,14 +1380,14 @@ HAVING | Los filtros que quiero que mis datos agrupados tengan.
 	GROUP BY posts.id;
 
 	-- ¿Cuál es el tag que mas se repite?
-	SELECT  etiquetas.nombre_etiqueta, COUNT(*) AS ocurrencias
+	SELECT  etiquetas.nombre, COUNT(*) AS ocurrencias
 	FROM etiquetas
 	    INNER JOIN posts_etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
 	GROUP BY etiquetas.id
 	ORDER BY ocurrencias DESC;
 
 	-- Los tags que tiene un post separados por comas
-	SELECT  posts.titulo, GROUP_CONCAT(nombre_etiqueta)
+	SELECT  posts.titulo, GROUP_CONCAT(nombre)
 	FROM    posts
 	    INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
 	    INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
@@ -1405,6 +1405,12 @@ HAVING | Los filtros que quiero que mis datos agrupados tengan.
 	    INNER JOIN posts AS p on c.id = p.categoria_id
 	GROUP BY c.id
 	ORDER BY cant_posts DESC;
+
+> *NOTA1: GROUP_CONCAT toma el resultado del query y lo pone como campo separado por comas.* <br>
+
+> *NOTA2: Función CASE permite agregar un campo virtual con información generada a partir de condiciones múltiples. Mostrar el idioma, precio de todos los libros, así como agregar una columna de informe que indique si el libro es caro, módico o barato basado en el precio.*
+
+### Consultando PlatziBlog
 
 	-- ¿Cuál es la categoría que tiene mas posts?
 	SELECT c.nombre_categoria, COUNT(*) AS cant_posts
@@ -1434,9 +1440,3 @@ HAVING | Los filtros que quiero que mis datos agrupados tengan.
 	FROM	usuarios 
 		LEFT JOIN posts on usuarios.id = posts.usuario_id
 	WHERE	posts.usuario_id IS NULL
-
-> *NOTA1: GROUP_CONCAT toma el resultado del query y lo pone como campo separado por comas.* <br>
-
-> *NOTA2: Función CASE permite agregar un campo virtual con información generada a partir de condiciones múltiples. Mostrar el idioma, precio de todos los libros, así como agregar una columna de informe que indique si el libro es caro, módico o barato basado en el precio.*
-
-### Consultando PlatziBlog
