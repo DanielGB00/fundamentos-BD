@@ -1282,12 +1282,161 @@ DESC | sirve para ordenar de forma descendente.
 LIMIT | se usa para limitar la cantidad de resultados que arroja el query.
 HAVING | tiene una similitud muy grande con WHERE, sin embargo el uso de ellos depende del orden. Cuando se quiere seleccionar tuplas agrupadas únicamente se puede hacer con HAVING.
 
+> *NOTA: En SQL SERVER no funciona el LIMIT, en su lugar use el TOP*
 
+	-- Posts ordenados por fecha de publicación de manera ascendente
+	SELECT	*
+	FROM		posts
+	ORDER BY fecha_publicacion ASC;
+
+	-- Posts ordenados por fecha de publicación de manera descendente
+	SELECT	*
+	FROM		posts
+	ORDER BY fecha_publicacion DESC;
+
+	-- Posts ordenados por titulo de manera ascendente 
+	SELECT	*
+	FROM		posts
+	ORDER BY titulo ASC;
+
+	-- Posts ordenados por titulo de manera descendente
+	SELECT	*
+	FROM		posts
+	ORDER BY titulo DESC;
+
+	-- Posts ordenados por usuario_id de manera ascendente , los 5 primeros
+	SELECT	*
+	FROM		posts
+	ORDER BY usuario_id ASC
+	LIMIT 5;
+
+	-- Cuantos posts hay por mes y estatus, ordenados por mes (ALFABETICAMENTE)
+	SELECT	MONTHNAME(fecha_publicacion) AS post_month, estatus, COUNT(*) AS post_quantity
+	FROM		posts
+	GROUP BY estatus, post_month
+	ORDER BY post_month;
+
+	-- !ERROR: WHERE NO RECONOCE POST QUANTITY PORQUE ESTE GENERA POSTERIOR AL GROUP BY Y WHERE NO FUNCIONA FUERA DE GROUP BY
+	SELECT	MONTHNAME(fecha_publicacion) AS post_month, estatus, COUNT(*) AS post_quantity
+	FROM		posts
+	WHERE post_quantity > 1
+	GROUP BY estatus, post_month
+	ORDER BY post_month;
+
+	-- USAMOS HAVING POSTERIOR A GROUP BY PARA OBTENER EL RESULTAOD DESEADO
+	SELECT	MONTHNAME(fecha_publicacion) AS post_month, estatus, COUNT(*) AS post_quantity
+	FROM		posts
+	GROUP BY estatus, post_month
+	HAVING post_quantity > 1
+	ORDER BY post_month;
 
 ### El interminable agujero de conejo (Nested queries)
 
+> Los Nested queries significan que dentro de un query podemos hacer otro query. Esto sirve para hacer join de tablas, estando una en memoria. También teniendo un query como condicional del otro. Este proceso puede ser tan profundo como quieras, teniendo infinitos queries anidados.
+
+> Se le conoce como un producto cartesiano ya que se multiplican todos los registros de una tabla con todos los del nuevo query. Esto provoca que el query sea difícil de procesar por lo pesado que puede resultar (El punto negativo de esto, es que puede volverse lento a la hora de ejecutar).
+
+> Recomendaciones:<br>
+> - Precaución pues su uso por volverse confuso en un momento determinado y poco escalable.<br>
+> - Procurar que exista una buena normalizacion de las tablas.<br>
+> - Los JOINS son la mejor opción para casos de SELECT.
+
+	 -- Ejemplo de Nested Queries donde creamos primero una new_table_proyection y luego realizamos count 
+	SELECT new_table_projection.date, COUNT(*) AS posts_count
+	FROM (
+	    SELECT DATE(MIN(fecha_publicacion)) AS date, YEAR(fecha_publicacion) AS post_year
+	    FROM posts
+	    GROUP BY post_year
+	) AS new_table_projection
+	GROUP BY new_table_projection.date 
+	ORDER BY new_table_projection.date;
+
+	-- Ejemplo de Nested Queries donde definimos un where sea la fecha maxima y traer el post de dicha fecha
+	SELECT *
+	FROM posts
+	WHERE fecha_publicacion = (
+		SELECT MAX(fecha_publicacion)
+		FROM posts
+	);
+
 ### ¿Cómo convertir una pregunta en un query SQL?
 
+Secuencias Auiliares | Descripción
+------------- | -------------
+SELECT | Lo que quieres mostrar (Nickname, Titulo del post, etc).
+FROM | De dónde voy a tomar los datos (Tabla usuarios, Tabla  post, etc).
+WHERE | Los filtros de los datos que quieres mostrar (Deben de ser ..).
+GROUP BY | Los rubros por los que me interesa agrupar la información (Si/No deseo agrupar).
+ORDER BY | El orden en que quiero presentar mi información.
+HAVING | Los filtros que quiero que mis datos agrupados tengan.
+
 ### Preguntándole a la base de datos
+
+	-- ¿Cuántos tags tienen cada post?
+	SELECT  posts.titulo, COUNT(*) AS num_etiquetas
+	FROM    posts
+	    INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+	    INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+	GROUP BY posts.id;
+
+	-- ¿Cuál es el tag que mas se repite?
+	SELECT  etiquetas.nombre_etiqueta, COUNT(*) AS ocurrencias
+	FROM etiquetas
+	    INNER JOIN posts_etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+	GROUP BY etiquetas.id
+	ORDER BY ocurrencias DESC;
+
+	-- Los tags que tiene un post separados por comas
+	SELECT  posts.titulo, GROUP_CONCAT(nombre_etiqueta)
+	FROM    posts
+	    INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+	    INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+	GROUP BY posts.id;
+
+	-- ¿Que etiqueta no tiene ningun post asociado?
+	SELECT	*
+	FROM	etiquetas 
+		LEFT JOIN posts_etiquetas on etiquetas.id = posts_etiquetas.etiqueta_id
+	WHERE	posts_etiquetas.etiqueta_id IS NULL;
+
+	-- Las categorías ordenadas por numero de posts
+	SELECT c.nombre_categoria, COUNT(*) AS cant_posts
+	FROM    categorias AS c
+	    INNER JOIN posts AS p on c.id = p.categoria_id
+	GROUP BY c.id
+	ORDER BY cant_posts DESC;
+
+	-- ¿Cuál es la categoría que tiene mas posts?
+	SELECT c.nombre_categoria, COUNT(*) AS cant_posts
+	FROM    categorias AS c
+	    INNER JOIN posts AS p on c.id = p.categoria_id
+	GROUP BY c.id
+	ORDER BY cant_posts DESC
+	LIMIT 1;
+
+	-- ¿Que usuario ha contribuido con mas post?
+	SELECT u.nickname, COUNT(*) AS cant_posts
+	FROM    usuarios AS u
+	    INNER JOIN posts AS p on u.id = p.usuario_id
+	GROUP BY u.id
+	ORDER BY cant_posts DESC
+	LIMIT 1;
+
+	-- ¿De que categorías escribe cada usuario?
+	SELECT u.nickname, COUNT(*) AS cant_posts,  GROUP_CONCAT(nombre_categoria)
+	FROM    usuarios AS u
+	    INNER JOIN posts AS p ON u.id = p.usuario_id
+	    INNER JOIN categorias AS c ON c.id = p.categoria_id
+	GROUP BY u.id;
+
+	-- ¿Que usuario no tiene ningun post asociado?
+	SELECT	*
+	FROM	usuarios 
+		LEFT JOIN posts on usuarios.id = posts.usuario_id
+	WHERE	posts.usuario_id IS NULL
+
+> *NOTA1: GROUP_CONCAT toma el resultado del query y lo pone como campo separado por comas.* <br>
+
+> *NOTA2: Función CASE permite agregar un campo virtual con información generada a partir de condiciones múltiples. Mostrar el idioma, precio de todos los libros, así como agregar una columna de informe que indique si el libro es caro, módico o barato basado en el precio.*
 
 ### Consultando PlatziBlog
