@@ -1128,13 +1128,161 @@ HAVING | otra manera de filtrar los datos.
 
 #### Utilizando la sentencia FROM
 
+	-- Taer todos los usuarios
+	SELECT	*
+	FROM usuarios;
+
+	-- Todos los usuarios tengan o no  un post relacionado
+	SELECT	*
+	FROM	usuarios 
+		LEFT JOIN posts on usuarios.id = posts.usuario_id;
+
+	-- Todos los usuarios que no han hecho post    
+	SELECT	*
+	FROM	usuarios 
+		LEFT JOIN posts on usuarios.id = posts.usuario_id
+	WHERE	posts.usuario_id IS NULL;
+
+	-- Todos los post esten o no asociados con un usuario
+	SELECT	*
+	FROM	usuarios 
+		RIGHT JOIN posts on usuarios.id = posts.usuario_id;
+
+	 -- Los post que no estan asociados con un usuario    
+	SELECT	*
+	FROM	usuarios 
+		RIGHT JOIN posts on usuarios.id = posts.usuario_id
+	WHERE	posts.usuario_id IS NULL;
+
+	 -- Todos los usuarios que sí hayan hecho posts, con su respectivo post
+	SELECT	*
+	FROM	usuarios 
+		INNER JOIN posts on usuarios.id = posts.usuario_id;
+
+	 -- Conjunto universo UNION (algunas BD = FULL OUTER JOIN)     
+	SELECT	*
+	FROM		usuarios 
+		LEFT JOIN posts   ON usuarios.id = posts.usuario_id
+	UNION 
+	SELECT	*
+	FROM		usuarios 
+		RIGHT JOIN posts ON usuarios.id = posts.usuario_id;
+
+	 -- Los usuarios que no hayan hecho un post, junto con los post que no tiene usuario    
+	SELECT	*
+	FROM	usuarios 
+		LEFT JOIN posts on usuarios.id = posts.usuario_id
+	WHERE	posts.usuario_id IS NULL
+	UNION
+	SELECT	*
+	FROM	usuarios 
+		RIGHT JOIN posts on usuarios.id = posts.usuario_id
+	WHERE	posts.usuario_id IS NULL;
+
 #### WHERE
+> WHERE es la sentencia que nos ayuda a filtrar registros (filas de la tabla). Podemos filtrar por ejemplo, a partir de cierto numero de ID (con el operador de mayor o menor). <br>
+
+	-- Traer los post donde id sea menor a 50
+	SELECT	*
+	FROM		posts
+	WHERE	id	< 50;
+
+	-- Taer los posts donde estatos sea inactivo
+	SELECT	*
+	FROM		posts
+	WHERE	estatus = 'Inactivo';
+
+	-- Traer los posts donde fecha de publicación sea mayor a 2025-01-01
+	SELECT	*
+	FROM		posts
+	WHERE	fecha_publicacion > '2025-01-01';
+
+> -La propiedad LIKE nos ayuda a traer registros de los cuales conocemos sólo una parte de la información. <br>
+> *ejemplo: WHERE titulo LIKE ‘%escandalo%’ lo que hace es buscar aquellos titulos que tengan la palabra escandalo en alguna parte. Sin embargo, como los signos porcentuales indican que hay algo mas, si quitamos, por ejemplo, el del final (quedando ‘%escandalo’), estaremos buscando aquellos titulos que terminen con la palabra ‘escandalo’, ya que indicamos que despues de esta palabra no hay nada mas.* <br>
+
+	-- Traer los posts donde en el título esté la palabra escandalo
+	SELECT	*
+	FROM		posts
+	WHERE	titulo LIKE '%escandalo%';
+
+> -La propiedad BETWEEN nos sirve para arrojar registros que estén en el medio de dos. Por ejemplo los registros con id entre 20 y 30. <br>
+> *ejemplo: WHERE fechaDePublicacion BETWEEN ‘2019-01-01’ AND ‘2019-01-10’ filtrara las publicaciones con fecha de publicacion entre el 1 de enero de 2019 y 10 de enero de 2019. Puede utilizarse tambien con valores numericos (y por lo tanto, por ejemplo, con los IDs).* <BR>
+
+	-- Traer los posts donde fecha de publicación este entre 2023-01-01 y 2025-12-31
+	SELECT	*
+	FROM		posts
+	WHERE	fecha_publicacion BETWEEN '2023-01-01' AND '2025-12-31';
+	
+	-- Traer los posts donde fecha de publicación este entre 2023 y 2024
+	SELECT	*
+	FROM		posts
+	WHERE	YEAR(fecha_publicacion) BETWEEN '2023' AND '2024';
+
+	-- Traer los posts donde fecha de publicación el mes de publicación sea 04
+	SELECT	*
+	FROM		posts
+	WHERE	MONTH(fecha_publicacion) = '04';
+
+> *NOTA: Cabe mencionar que los operadores LIKE y BETWEEN AND, pueden ser negados con NOT **(NOT LIKE ; NOT BETWEEEN – AND –)**. *
 
 #### Utilizando la sentencia WHERE nulo y no nulo
 
+> El valor nulo en una tabla generalmente es su valor por defecto cuando nadie le asignó algo diferente. La sintaxis para hacer búsquedas de datos nulos es IS NULL. La sintaxis para buscar datos que no son nulos es IS NOT NULL
+
+	-- Traer los posts donde el usuario sean NOT NULL
+	SELECT	*
+	FROM		posts
+	WHERE	usuario_id IS NOT NULL;
+
+	-- Traer los posts donde el usuario sean NULL
+	SELECT	*
+	FROM		posts
+	WHERE	usuario_id IS NULL;
+	
+	-- Podemos a esto concatenar cuantos AND necesitemos
+	SELECT	*
+	FROM		posts
+	WHERE	usuario_id IS NULL;
+		AND id < 50
+		AND categoria_id =2
+		AND YEAR(fecha_publicacion)='2050'
+
 #### GROUP BY
 
+> GROUP BY tiene que ver con agrupación. Indica a la base de datos qué criterios debe tener en cuenta para agrupar.
+
+	-- Agrupar los count por los status
+	SELECT	estatus, COUNT(*) AS post_number
+	FROM		posts
+	GROUP BY estatus;
+
+	-- Agrupar cuantos post se hicieron por cada año
+	SELECT	YEAR(fecha_publicacion) AS post_year, COUNT(*) AS post_number
+	FROM		posts
+	GROUP BY post_year;
+
+	-- Agrupar cuantos posts se hicieorn por cada mes
+	SELECT	MONTHNAME(fecha_publicacion) AS post_month, COUNT(*) AS post_number
+	FROM		posts
+	GROUP BY post_month;
+
+	-- Agrupar cuantos post se hicieorn por cada mes y agruparlos por estatus
+	SELECT	estatus, MONTHNAME(fecha_publicacion) AS post_date, COUNT(*) AS post_number
+	FROM		posts
+	GROUP BY estatus, post_date;
+	
 #### ORDER BY y HAVING
+
+> La sentencia ORDER BY tiene que ver con el ordenamiento de los datos dependiendo de los criterios que quieras usar. Puedes utilizar otras secuencias auxiliares como:
+
+Secuencias Auiliares | Descripción
+------------- | -------------
+ASC | sirve para ordenar de forma ascendente.
+DESC | sirve para ordenar de forma descendente.
+LIMIT | se usa para limitar la cantidad de resultados que arroja el query.
+HAVING | tiene una similitud muy grande con WHERE, sin embargo el uso de ellos depende del orden. Cuando se quiere seleccionar tuplas agrupadas únicamente se puede hacer con HAVING.
+
+
 
 ### El interminable agujero de conejo (Nested queries)
 
