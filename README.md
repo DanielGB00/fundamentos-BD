@@ -1122,7 +1122,7 @@ HAVING | otra manera de filtrar los datos.
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/47.png" width="500">
+  <img src="Imágenes/47.jpg" width="500">
   <h5> Diagramas de Venn en JOIN </h5>
 </div>
 
