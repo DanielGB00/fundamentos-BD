@@ -486,6 +486,12 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 
 > Es improtante comprender que dentro del SQL como lenguaje de domio específico podemos hallar grandes sublenguajes:
 
+<br>
+<div align="center"> 
+  <img src="Imágenes/36.png" width="350">
+  <h5> Sublenguajes </h5>
+</div>
+
 > **1. DDL (Data Definition Language)**: Permite crear y modificar la estructura de una base de datos. Posee los siguientes comandos:
 
 Comandos | Descripción
@@ -518,13 +524,25 @@ RENAME | Tal como su nombre lo indica es utilizado para renombrar objetos.
         `city` VARCHAR(255) NULL,
     PRIMARY KEY (`person_id`));
 
+<br>
+<div align="center"> 
+  <img src="Imágenes/37.png" width="350">
+  <h5> Atributos de tabla people </h5>
+</div>
+
 > Ahora vamos a agregarle datos
 
     INSERT INTO `platziblog`.`people` (`person_id`, `last_name`, `first_name`, `address`, `city`) 
     VALUES ('1', 'Vásquez', 'Israel', 'Calle Famosa Num 1', 'México'),
 	       ('2', 'Hernández', 'Mónica', 'Reforma 222', 'México'),
 	       ('3', 'Alanis', 'Edgar', 'Central 1', 'Monterrey');
-         
+	       
+<br>
+<div align="center"> 
+  <img src="Imágenes/38.png" width="350">
+  <h5> Agregando datos en tabla people </h5>
+</div>
+
 > Ahora crearemos una vista de dicha tabla
 
     USE `platziblog`;
@@ -574,6 +592,12 @@ DELETE | Utilizado para eliminar registros de una tabla de una base de datos.
 
     SELECT first_name, last_name FROM people;
     
+<br>
+<div align="center"> 
+  <img src="Imágenes/39.png" width="350">
+  <h5> comando select </h5>
+</div>
+
 ### DCL Y TCL
     
 > **2. DCL (Data Control Language)**: Permite crear roles, permisos e integridad referencial, así como el control al acceso a la base de datos.
@@ -651,6 +675,12 @@ ROLLBACK | Utilizado para deshacer la modificación que hice desde el último CO
     unique key email_unique (email)
     )
 
+<br>
+<div align="center"> 
+  <img src="Imágenes/40.png" width="350">
+  <h5> T.independientes del platziblog </h5>
+</div>
+
 #### Tablas dependientes
 
 > Ahora es momento de crear las entidades que si tienen una llave foránea. A estas tablas se les denomina, tablas dependientes.
@@ -674,5 +704,82 @@ ROLLBACK | Utilizado para deshacer la modificación que hice desde el último CO
       REFERENCES `PlatziBlog`.`categorias` (`id`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION;
+      
+    CREATE TABLE comentarios 
+    (
+    comentarios_id int not null auto_increment,
+    comentario TEXT NOT NULL, 
+    usuarios_id INT NOT NULL,
+    posts_id INT NOT NULL,
+    constraint primary key (comentarios_id)
+    )
+    ;
+    ALTER TABLE `PlatziBlog`.`comentarios` 
+    ADD CONSTRAINT `usuarios_comentario_fk`
+      FOREIGN KEY (`usuarios_id`)
+      REFERENCES `PlatziBlog`.`usuarios` (`id`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+    ;
+    ALTER TABLE `PlatziBlog`.`comentarios` 
+    ADD CONSTRAINT `posts_comentario_fk`
+      FOREIGN KEY (`posts_id`)
+      REFERENCES `PlatziBlog`.`posts` (`id`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+      
+<br>
+<div align="center"> 
+  <img src="Imágenes/41.png" width="350">
+  <h5> Añadiendo Foreign key </h5>
+</div>
+
+> Las Foreing Key options son las siguientes: <br>
+> -On update: Significa qué pasará con las relaciones cuando una de estas sea modificada en sus campos relacionados. <br>
+> -On delete: Significa qué pasará con las relaciones cuando una de estas sea eliminada en sus campos relacionados.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/42.png" width="350">
+  <h5> Foreing Key options </h5>
+</div>
+
+Valores | Descripción
+------------- | -------------
+Cascade | Si un usuario es eliminado/modificado entonces se borrarán/modificaran todos los post relacionados.
+Restrict | No se podrá eliminar/modificar un usuario hasta que sean eliminados/modificados todos su post relacionados.
+Set null | Si un usuario es eliminado/modificado, entonces los post solo no estará relacionados con NULL.
+No action | Si un usuario es eliminado/modificado, no se hará nada. Solo se romperá la relación. 
   
 #### Tablas transitivas
+
+Las tablas transitivas sirven como puente para unir dos tablas. No tienen contenido semántico.
+Reverse Engineer nos reproduce el esquema del cual nos basamos para crear nuestras tablas. Es útil cuando llegas a un nuevo trabajo y quieres entender cuál fue la mentalidad que tuvieron al momento de crear las bases de datos.
+
+    CREATE TABLE posts_etiquetas
+    (
+    posts_etiquetas_id int not null auto_increment,
+    posts_id INT NOT NULL,
+    etiquetas_id INT NOT NULL,
+    constraint primary key (posts_etiquetas_id)
+        )
+    ;
+    ALTER TABLE `PlatziBlog`.`posts_etiquetas` 
+    ADD CONSTRAINT `posts_etiquetas_posts_fk`
+	FOREIGN KEY (`posts_id`)
+	REFERENCES `PlatziBlog`.`posts` (`id`)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION;
+    ;
+    ALTER TABLE `PlatziBlog`.`posts_etiquetas` 
+    ADD CONSTRAINT `posts_etiquetas_etiquetas_fk`
+	FOREIGN KEY (`etiquetas_id`)
+	REFERENCES `PlatziBlog`.`etiquetas` (`id`)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION
+	
+<br>
+<div align="center"> 
+  <img src="Imágenes/43.png" width="350">
+  <h5> Diagrama del Reverse Engineer </h5>
+</div>
