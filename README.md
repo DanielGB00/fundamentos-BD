@@ -753,8 +753,7 @@ No action | Si un usuario es eliminado/modificado, no se hará nada. Solo se rom
   
 #### Tablas transitivas
 
-Las tablas transitivas sirven como puente para unir dos tablas. No tienen contenido semántico.
-Reverse Engineer nos reproduce el esquema del cual nos basamos para crear nuestras tablas. Es útil cuando llegas a un nuevo trabajo y quieres entender cuál fue la mentalidad que tuvieron al momento de crear las bases de datos.
+> Las tablas transitivas sirven como puente para unir dos tablas. No tienen contenido semántico. Reverse Engineer nos reproduce el esquema del cual nos basamos para crear nuestras tablas. Es útil cuando llegas a un nuevo trabajo y quieres entender cuál fue la mentalidad que tuvieron al momento de crear las bases de datos.
 
     CREATE TABLE posts_etiquetas
     (
