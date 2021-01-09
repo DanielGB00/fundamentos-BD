@@ -467,7 +467,7 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/34.png" width="350">
+  <img src="Imágenes/34.jpg" width="350">
   <h5> SQL </h5>
 </div>
 
@@ -476,7 +476,7 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/35.png" width="350">
+  <img src="Imágenes/35.webp" width="350">
   <h5> SQL vs noSQL </h5>
 </div>
 
@@ -488,7 +488,7 @@ Cuarta forma normal (4FN) | **Cumple 1FN, 2FN, 3FN y los campos multivaluados se
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/36.png" width="350">
+  <img src="Imágenes/36.gif" width="350">
   <h5> Sublenguajes </h5>
 </div>
 
@@ -779,6 +779,6 @@ No action | Si un usuario es eliminado/modificado, no se hará nada. Solo se rom
 	
 <br>
 <div align="center"> 
-  <img src="Imágenes/43.png" width="350">
+  <img src="Imágenes/43.png" width="550">
   <h5> Diagrama del Reverse Engineer </h5>
 </div>
