@@ -73,7 +73,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Colecciones vs subcolecciones](#Colecciones-vs-subcolecciones)
   - [Recreando Platziblog](#Recreando-Platziblog)
   - [Construyendo Platziblog en Firestore](#Construyendo-Platziblog-en-Firestore)
-  - [Proyecto final: transformando tu proyecto en una db no relacional](#Proyecto-final-:-transformando-tu-proyecto-en-una-db-no-relacional)
+  - [Proyecto final: transformando tu proyecto en una db no relacional](#proyecto-final-transformando-tu-proyecto-en-una-db-no-relacional)
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
 
