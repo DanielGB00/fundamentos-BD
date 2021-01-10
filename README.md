@@ -64,6 +64,16 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [¿Cómo convertir una pregunta en un query SQL?](#¿Cómo-convertir-una-pregunta-en-un-query-SQL?)
   - [Preguntándole a la base de datos](#Preguntándole-a-la-base-de-datos)
   - [Consultando PlatziBlog](#Consultando-PlatziBlog)
+- [Introducción a la bases de datos NO relacionales](#Introducción-a-la-bases-de-datos-NO-relacionales)
+  - [¿Qué son y cuáles son los tipos de bases de datos no relacionales?](#¿Qué-son-y-cuáles-son-los-tipos-de-bases-de-datos-no-relacionales?)
+  - [Servicios administrados y jerarquía de datos](#Servicios-administrados-y-jerarquía-de-datos)
+- [Manejo de modelos de datos en bases de datos no relacionales](#Manejo-de-modelos-de-datos-en-bases-de-datos-no-relacionales)
+  - [Top level collection con Firebase](#Top-level-collection-con-Firebase)
+  - [Creando y borrando documentos en Firestore](#Creando-y-borrando-documentos-en-Firestore)
+  - [Colecciones vs subcolecciones](#Colecciones-vs-subcolecciones)
+  - [Recreando Platziblog](#Recreando-Platziblog)
+  - [Construyendo Platziblog en Firestore](#Construyendo-Platziblog-en-Firestore)
+  - [Proyecto final: transformando tu proyecto en una db no relacional](#Proyecto-final:-transformando-tu-proyecto-en-una-db-no-relacional)
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
 
@@ -1440,3 +1450,23 @@ HAVING | Los filtros que quiero que mis datos agrupados tengan.
 	FROM	usuarios 
 		LEFT JOIN posts on usuarios.id = posts.usuario_id
 	WHERE	posts.usuario_id IS NULL
+
+## Introducción a la bases de datos NO relacionales
+
+### ¿Qué son y cuáles son los tipos de bases de datos no relacionales?
+
+### Servicios administrados y jerarquía de datos
+
+## Manejo de modelos de datos en bases de datos no relacionales
+
+### Top level collection con Firebase
+
+### Creando y borrando documentos en Firestore
+
+### Colecciones vs subcolecciones
+
+### Recreando Platziblog
+
+### Construyendo Platziblog en Firestore
+
+### Proyecto final: transformando tu proyecto en una db no relacional
