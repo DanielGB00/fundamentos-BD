@@ -65,7 +65,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Preguntándole a la base de datos](#Preguntándole-a-la-base-de-datos)
   - [Consultando PlatziBlog](#Consultando-PlatziBlog)
 - [Introducción a la bases de datos NO relacionales](#Introducción-a-la-bases-de-datos-NO-relacionales)
-  - [¿Qué son y cuáles son los tipos de bases de datos no relacionales?](#¿Qué-son-y-cuáles-son-los-tipos-de-bases-de-datos-no-relacionales?)
+  - [¿Qué son y cuáles son los tipos de bases de datos no relacionales?](#Qué-son-y-cuáles-son-los-tipos-de-bases-de-datos-no-relacionales)
   - [Servicios administrados y jerarquía de datos](#Servicios-administrados-y-jerarquía-de-datos)
 - [Manejo de modelos de datos en bases de datos no relacionales](#Manejo-de-modelos-de-datos-en-bases-de-datos-no-relacionales)
   - [Top level collection con Firebase](#Top-level-collection-con-Firebase)
@@ -73,7 +73,7 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Colecciones vs subcolecciones](#Colecciones-vs-subcolecciones)
   - [Recreando Platziblog](#Recreando-Platziblog)
   - [Construyendo Platziblog en Firestore](#Construyendo-Platziblog-en-Firestore)
-  - [Proyecto final: transformando tu proyecto en una db no relacional](#Proyecto-final:-transformando-tu-proyecto-en-una-db-no-relacional)
+  - [Proyecto final: transformando tu proyecto en una db no relacional](#Proyecto-final-:-transformando-tu-proyecto-en-una-db-no-relacional)
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
 
@@ -1471,6 +1471,16 @@ Optimizadas para búsquedas | Pueden ser de diversas estructuras, su ventaja rad
 
 ### Servicios administrados y jerarquía de datos
 
+> Firebase (Firestore) es un servicio de Google donde puedes tercerizar muchos elementos en la nube. Firebase es una plataforma muy utilizada para el desarrollo de aplicaciones web y aplicaciones móviles. Como usa un conjunto de herramientas multiplataforma es compatible con grandes plataformas, como IOS, Android, aplicaciones web, Unity y C++. Es muy recomendable para desarrollos. <br>
+
+> Firebase ofrece 2 servicios para bases de datos, los cuales son Realtime Database y Cloud Firestore.
+La jerarquía de datos consta primeramente de la base de datos como tal, seguido ya no de tablas, sino de colecciones y finalmente los documentos como tal y que correspondería a una tupla en una base de datos basada en SQL.
+
+Jerarquía de datos | Descripción
+------------- | -------------
+1. Base de Datos | Contiene toda la información que se quiere guardar. 
+2. Colección | Es igual a las tablas en las bases de datos relacionales. Son objetos que agrupan (Documentos) la información que se desea guardar. 
+3. Documento | Es la información que se quiere guardar. Se guarda en un formato muy parecido al formato JSON (es un lenguaje que se utiliza para comunicarse con diferentes lenguajes o aplicaciones). Los documentos dentro de ellos contienen datos.
 
 
 ## Manejo de modelos de datos en bases de datos no relacionales
