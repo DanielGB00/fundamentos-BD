@@ -1506,6 +1506,20 @@ Documento | Es la información que se quiere guardar. Se guarda en un formato mu
 
 ### Creando y borrando documentos en Firestore
 
+> Un ID en un documento, funciona como un N° de serie. Es mejor dejarlo por default y que GOOGLE asigne un ID único.
+
+Tipos de datos en Firestore | Descripción
+------------- | -------------
+String | Cualquier tipo de valor alfanumérico
+Number | Soporta enteros y flotantes.
+Boolenan | Los clásicos valores True y False
+Map | Permite agregar un documento dentro de otro.
+Array | Permite agregar un conjunto de datos (soporte multi type) sin nombre e identificador.
+Null | Indica que no se ha definido un valor.
+Timestamp | Permite almacenar fechas (guarda el año, mes, día y hora).
+Geopoint | Guarda una localización geográfica (coordenadas latitud-longitud).
+Reference | Permite referencia un documento (relaciona dos documentos, no importa su colección).
+
 ### Colecciones vs subcolecciones
 
 ### Recreando Platziblog
