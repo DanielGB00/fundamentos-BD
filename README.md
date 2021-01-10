@@ -1453,9 +1453,25 @@ HAVING | Los filtros que quiero que mis datos agrupados tengan.
 
 ## Introducción a la bases de datos NO relacionales
 
+> Las bases de datos NoSQL a veces llamado “no solo SQL”, están diseñadas específicamente para modelos de datos específicos y tienen esquemas flexibles para crear aplicaciones modernas. Es una amplia clase de sistemas de gestión de bases de datos que difieren del modelo clásico de SGBDR (Sistema de Gestión de Bases de Datos Relacionales) en aspectos importantes, siendo el más destacado que no usan SQL como lenguaje principal de consultas.
+
 ### ¿Qué son y cuáles son los tipos de bases de datos no relacionales?
 
+> Respecto a las bases de datos no relacionales, no existe un solo tipo aunque se engloben en una sola categoría.
+
+Tipos | Descripción
+------------- | -------------
+Clave - valor | Son ideales para almacenar y extraer datos con una clave única. Manejan los diccionarios de manera excepcional. Ejemplos: DynamoDB, Cassandra.
+Basadas en documentos | Son una implementación de clave valor que varía en la forma semiestructurada en que se trata la información. Ideal para almacenar datos JSON (JavaScript Object Notation) y XML. Probablemente son las mas utilizadas luego de las SQL. Ejemplos: MongoDB, Firestore.
+Basadas en grafos | Basadas en teoría de grafos, sirven para entidades que se encuentran interconectadas por múltiples relaciones. Ideales para almacenar relaciones complejas. Usadas para redes neuronales de inteligencia artificial. Ejemplos: neo4j, TITAN.
+En memoria | Pueden ser de estructura variada, pero su ventaja radica en la velocidad, ya que al vivir en memoria la extracción de datos es casi inmediata. Son volátiles / si el servidor se reinicia se pierden los datos. Ejemplos: Memcached, Redis.
+Optimizadas para búsquedas | Pueden ser de diversas estructuras, su ventaja radica en que se pueden hacer queries y búsquedas complejas de manera sencilla. Ejemplos: BigQuery, Elasticsearch.
+
+> Cada tipo surge como respuesta a un determinado problema, y por ello sus aplicaciones son muy distintas. A pesar de ellos a todos se les engloba con el nombre de BD noSQL.
+
 ### Servicios administrados y jerarquía de datos
+
+
 
 ## Manejo de modelos de datos en bases de datos no relacionales
 
