@@ -1478,9 +1478,9 @@ La jerarquía de datos consta primeramente de la base de datos como tal, seguido
 
 Jerarquía de datos | Descripción
 ------------- | -------------
-1. Base de Datos | Contiene toda la información que se quiere guardar. 
-2. Colección | Es igual a las tablas en las bases de datos relacionales. Son objetos que agrupan (Documentos) la información que se desea guardar. 
-3. Documento | Es la información que se quiere guardar. Se guarda en un formato muy parecido al formato JSON (es un lenguaje que se utiliza para comunicarse con diferentes lenguajes o aplicaciones). Los documentos dentro de ellos contienen datos.
+Base de Datos | Contiene toda la información que se quiere guardar. 
+Colección | Es igual a las tablas en las bases de datos relacionales. Son objetos que agrupan (Documentos) la información que se desea guardar. 
+Documento | Es la información que se quiere guardar. Se guarda en un formato muy parecido al formato JSON (es un lenguaje que se utiliza para comunicarse con diferentes lenguajes o aplicaciones). Los documentos dentro de ellos contienen datos.
 
 
 ## Manejo de modelos de datos en bases de datos no relacionales
