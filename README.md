@@ -1589,7 +1589,7 @@ Regla 2 | La colección tiene vida propia: Esta regla se refiere a que la excepc
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/50.png" width="600">
+  <img src="Imágenes/50.webp" width="600">
   <h5> Big data </h5>
 </div>
 
@@ -1601,7 +1601,7 @@ Regla 2 | La colección tiene vida propia: Esta regla se refiere a que la excepc
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/51.png" width="600">
+  <img src="Imágenes/51.webp" width="600">
   <h5> Data warehouse </h5>
 </div>
 
@@ -1627,7 +1627,7 @@ Televisión y radio | Hay cadenas que aplican la minería de datos en tiempo rea
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/52.png" width="500">
+  <img src="Imágenes/52.webp" width="500">
   <h5> ETL </h5>
 </div>
 
@@ -1653,8 +1653,8 @@ Deep learning | le busca sentido a los datos.
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/53.png" width="650">
-  <h5> ETL </h5>
+  <img src="Imágenes/53.webp" width="650">
+  <h5> DATA SCIENCE </h5>
 </div>
 
 
