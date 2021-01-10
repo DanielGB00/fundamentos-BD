@@ -1498,7 +1498,7 @@ Documento | Es la información que se quiere guardar. Se guarda en un formato mu
 
 <br>
 <div align="center"> 
-  <img src="Imágenes/48.jpg" width="500">
+  <img src="Imágenes/48.png" width="400">
   <h5> Creación de Top level collection </h5>
 </div>
 
@@ -1522,8 +1522,42 @@ Reference | Permite referencia un documento (relaciona dos documentos, no import
 
 ### Colecciones vs subcolecciones
 
+> La particularidad de las top level collections es que existen en el primer nivel de manera intrínseca. Las subcolecciones ya no vivirán al inicio de la base de datos. Si tienes una entidad separada que vas a referenciar desde muchos lugares es recomendado usar un top level collection. Por el otro lado si se necesita hacer algo intrínseco al documento es aconsejable usar subcolecciones. Un top level collection se utilizaria para relaciones de tipo “agregacion”. Mientras que una sub collection se utilizaria para relaciones tipo “composicion”. <br>
+
+> *-Ejemplo: Tenemos Estudiantes, Cursos y Notas. Los estudiantes tiene cursos y los cursos tiene estudiantes. Si se elimina un curso los estudiantes no deben ser eliminados. Lo mismo si se elimina un estudiante los cursos no deben ser elimiandos. Esto es una relacion de agregacion. Aqui se usaria top level collection para estudiantes y cursos. Los estudiantes tienen notas y las notas pertenecen a un estudiante. Si se elimina un estudiante, tiene sentido eliminar las notas. Esto es una relacion de composicion. Aqui se usarian las subcollections. El estudiante tendría una subcollection de notas.*
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/49.png" width="550">
+  <h5> Creación de sub-colecciones </h5>
+</div>
+
 ### Recreando Platziblog
+
+> Las bases de datos basadas en documentos, no están optimizadas para hacer “queries”, sino mantener el estado de la aplicación. Nota: No todas las bases de datos no relaciones no están optimizadas para hacer “queries”, hay algunas que sí, como “Big Query”.
 
 ### Construyendo Platziblog en Firestore
 
+> -Construimos categorias "espectaculos","deportes" y "ciencia" como top level collection. <br>
+> -Creamos en top level la coleccion usuarios. <br>
+> -Creamos la top level posts con dos articulos. <br>
+> -Ahora hacemos la relacion del top level collection del usuario agregando un campo en un documento posts usando el campo reference agregando el usuario. <br>
+> -Agregamos las referencias para las categorias. <br>
+> -Finalmente agregamos las subcolecciones etiquetas a los posts en agregar coleccion. <br>
+
+> *NOTA: Emplear colecciones de nivel cero para entidades fuertes, que mas adelante se empleen para realizar busquedas exhaustivas. Emplear subcolecciones para entidades débiles, que solo permitan plasmar información relacionada, pero que dicha data no sea una fuente de consulta primaria para nuestra aplicación.*
+
+
 ### Proyecto final: transformando tu proyecto en una db no relacional
+
+> Dentro de las bases de datos relacionales tenemos diferentes niveles de datos. En primer lugar tenemos las Bases de Datos o Esquemas como repositorios donde vivirán los datos que nos interesa guardar. Dentro del esquema existen las Tablas que provienen del concepto de entidades; y a su vez dentro de las tablas tenemos las tuplas o renglones.<br>
+
+> Cuando trabajamos con bases de datos basadas en documentos como Firestore, aún existe la figura de la base de datos, sin embargo cambiaremos las tablas en favor de las colecciones y las tuplas en lugar de los documentos. <br>
+
+> Dentro de las Colecciones existen 2 grandes tipos. Las Top level collection o colecciones de nivel superior y las subcollections o subcolecciones. Estas últimas viven únicamente dentro de un documento padre. ¿Cómo saber cuál escoger? Para determinar si tu colección debe ser top level o subcolección no hay una regla escrita en piedra y más bien tiene que ver con el caso de uso en particular y con la experiencia que hayas ganado como desarrollador. Lo cierto es que no hay una sola forma de estructurar nuestra DB basada en documentos, y por tanto no existe una respuesta correcta, sin embargo a continuación te ofrezco un par de reglas guía que puedes utilizar para transformar tu proyecto que ya trabajaste en bases de datos relacionales en un proyecto no relacional. <br>
+
+REGLAS | Descripción
+------------- | -------------
+Regla 1 | Piensa en la vista de tu aplicación: La primera pista que te puedo dar es que pienses en un inicio en la manera en que los datos serán extraídos. En el caso de una aplicación, la mejor forma de pensarlo es en términos de las vistas que vas a mostrar a un momento determinado en la aplicación. Es decir, al armar la estructura en la base de datos que sea un espejo o que al menos contenga todos los datos necesarios para llenar las necesidades que tiene nuestra parte visual en la aplicación.
+Regla 2 | La colección tiene vida propia: Esta regla se refiere a que la excepción a la regla 1 es cuando tenemos un caso en que la “entidad” que tiene necesidad de vivir y modificarse constantemente de manera independiente a las otras colecciones. Por ejemplo en Platziblog podemos en el ejemplo anterior hacer una excepción a autores porque nos conviene tenerlas como top level collection en el sentido que se añadan, borren, cambien o listen los usuarios sin depender del blog post.
+
