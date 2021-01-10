@@ -74,19 +74,19 @@ Este repositorio contiene apuntes del curso de [Fundamentos de Base de Datos](ht
   - [Recreando Platziblog](#Recreando-Platziblog)
   - [Construyendo Platziblog en Firestore](#Construyendo-Platziblog-en-Firestore)
   - [Proyecto final: transformando tu proyecto en una db no relacional](#proyecto-final-transformando-tu-proyecto-en-una-db-no-relacional)
-- [Bases de datos en la vida real](#Bases de datos en la vida real)
-  - [Bases de datos en la vida real](#Bases de datos en la vida real)
-  - [Big Data](#Big Data)
-  - [Data warehouse](#Data warehouse)
-  - [Data mining](#Data mining)
+- [Bases de datos en la vida real](#Bases-de-datos-en-la-vida-real)
+  - [Bases de datos en la vida real](#Bases-de-datos-en-la-vida-real)
+  - [Big Data](#Big-Data)
+  - [Data warehouse](#Data-warehouse)
+  - [Data mining](#Data-mining)
   - [ETL](#ETL)
-  - [Business intelligence](#Business intelligence)
-  - [Machine Learning](#Machine Learning)
-  - [Data Science](#Data Science)
-  - [¿Por qué aprender bases de datos hoy?](#¿Por qué aprender bases de datos hoy?)
+  - [Business intelligence](#Business-intelligence)
+  - [Machine Learning](#Machine-Learning)
+  - [Data Science](#Data-Science)
+  - [¿Por qué aprender bases de datos hoy?](#¿Por-qué-aprender-bases-de-datos-hoy?)
 - [Bonus](#Bonus)
-  - [Bases de datos relacionales vs no relacionales](#Bases de datos relacionales vs no relacionales)
-  - [Elegir una base de datos](#Elegir una base de datos)
+  - [Bases de datos relacionales vs no relacionales](#Bases-de-datos-relacionales-vs-no-relacionales)
+  - [Elegir una base de datos](#Elegir-una-base-de-datos)
 
 
 ## CONCEPTOS BÁSICOS Y CONTEXTO HISTÓRICO
@@ -1579,73 +1579,97 @@ Regla 2 | La colección tiene vida propia: Esta regla se refiere a que la excepc
 
 ### Bases de datos en la vida real
 
-Para datos historicos, queries complejos usar bigquery optimizado para datawherehouse
-
-Para datos del estado de nuestra aplicacion usa colecciones con mongo o firebase.
-
-Puedes usar dos bases de datos en un mismo proyecto, guardar datos de mongo, convertirlos pasarlos a bigquery y hacer analisis sobre ellos.
+> -Para datos historicos, queries complejos usar bigquery optimizado para datawherehouse. <br>
+> -Para datos del estado de nuestra aplicacion usa colecciones con mongo o firebase. <br>
+> -Puedes usar dos bases de datos en un mismo proyecto, guardar datos de mongo, convertirlos pasarlos a bigquery y hacer analisis sobre ellos.
 
 ### Big Data
 
-Big Data es un concepto que nace de la necesidad de manejar grandes cantidades de datos. La tendencia comenzó con compañías como YouTube al tener la necesidad de guardar y consultar mucha información de manera rápida.
+> Big Data es un concepto que nace de la necesidad de manejar grandes cantidades de datos. La tendencia comenzó con compañías como YouTube al tener la necesidad de guardar y consultar mucha información de manera rápida. Es un gran movimiento que consiste en el uso de diferentes tipos de bases de datos.Un ejemplo es cassandra pero tiene ciertos tipos de desventaja, su ventaja manejar datos masivos a gran velocidad
 
-Es un gran movimiento que consiste en el uso de diferentes tipos de bases de datos.
-
-Un ejemplo es cassandra pero tiene ciertos tipos de desventaja, su ventaja manejar datos masivos a gran velocidad
+<br>
+<div align="center"> 
+  <img src="Imágenes/50.png" width="600">
+  <h5> Big data </h5>
+</div>
 
 ### Data warehouse
 
-Data Warehouse trata de guardar cantidades masivas de datos para la posteridad. Allí se guarda todo lo que no está viviendo en la aplicación pero es necesario tenerlo. Debe servir para guardar datos por un largo periodo de tiempo y estos datos se deben poder usar para poder encontrar cuestiones interesantes para el negocio.
+> Data Warehouse trata de guardar cantidades masivas de datos para la posteridad. Allí se guarda todo lo que no está viviendo en la aplicación pero es necesario tenerlo. Debe servir para guardar datos por un largo periodo de tiempo y estos datos se deben poder usar para poder encontrar cuestiones interesantes para el negocio. Google usa BigTable, usa una sola tabla, pero no sirve tanto para hacer consultas. Data Warehouse es un archivo historico, archivo muerto, en otra base de datos. Sirve para dos actividades principales: Guarda una gran cantidad de datos de forma "eterna" y Poder extraer los datos para hacer analitica. <br>
 
-Google usa BigTable, usa una sola tabla, pero no sirve tanto para hacer consultas
+> *NOTA: Diferencia de Big Data y Data Warehouse: Supongamos que está la biblioteca central, donde se guardan todos los documentos históricos existentes para consultarlos de vez en cuando, ese seria el Data Warehouse. Ahora imagínate esa misma biblioteca pero está tiene una cantidad masiva de libros que no son históricos, sino actuales, que te sirven y los puedes consultar más a menudo en comparación con el caso de los libros históricos de años muy pasados, ese seria el Big Data.*
 
-Data Warehouse es un archivo historico, archivo muerto, en otra base de datos. Sirve para dos actividades principales:
-
-Guarda una gran cantidad de datos de forma "eterna".
-Poder extraer los datos para hacer analitica.
-BigQuery es muy utilizado
+<br>
+<div align="center"> 
+  <img src="Imágenes/51.png" width="600">
+  <h5> Data warehouse </h5>
+</div>
 
 ### Data mining
 
-El Data Mining se dedica a minar datos, a extraerlos de donde sea que estén (archivos muertos, base de datos actual, etc…) y hacer sentido de ellos para darles un uso.
+> El Data Mining se dedica a minar datos, a extraerlos de donde sea que estén (archivos muertos, base de datos actual, etc…) y hacer sentido de ellos para darles un uso.La capacidad predictiva del data mining ha cambiado el diseño de las estrategias empresariales. Ahora se puede entender el presente para anticiparse al futuro. Estos son algunos ejemplos de data mining en la industria actual:
+
+ÁREAS | Descripción
+------------- | -------------
+Marketing | La minería de datos se utiliza para explorar bases de datos cada vez mayores y mejorar la segmentación del mercado. Analizando las relaciones entre parámetros como edad de los clientes, género, gustos, etc., es posible adivinar su comportamiento para dirigir campañas personalizadas de fidelización o captación. El data mining en marketing predice también qué usuarios pueden darse de baja de un servicio, qué les interesa según sus búsquedas o qué debe incluir una lista de correo para lograr una tasa de respuesta mayor.
+Comercio minorista | Los supermercados, por ejemplo, emplean los patrones de compra conjunta para identificar asociaciones de productos y decidir cómo situarlos en los diferentes pasillos y estanterías de los lineales. El data mining detecta además qué ofertas son las más valoradas por los clientes o incrementa la venta en la cola de caja.
+Banca | Los bancos recurren a la minería de datos para entender mejor los riesgos del mercado. Es habitual que se aplique a la calificación crediticia (rating) y a sistemas inteligentes antifraude para analizar transacciones, movimientos de tarjetas, patrones de compra y datos financieros de los clientes. El data mining también permite a la banca conocer más sobre nuestras preferencias o hábitos en internet para optimizar el retorno de sus campañas de marketing, estudiar el rendimiento de los canales de venta o gestionar las obligaciones de cumplimiento de las regulaciones.
+Medicina | La minería de datos favorece diagnósticos más precisos. Al contar con toda la información del paciente —historial, examen físico y patrones de terapias anteriores— se pueden prescribir tratamientos más efectivos. También posibilita una gestión más eficaz, eficiente y económica de los recursos sanitarios al identificar riesgos, predecir enfermedades en ciertos segmentos de la población o pronosticar la duración del ingreso hospitalario. Detectar fraudes e irregularidades y estrechar vínculos con los pacientes al ahondar en el conocimiento de sus necesidades son también ventajas de emplear el data mining en medicina.
+Televisión y radio | Hay cadenas que aplican la minería de datos en tiempo real a sus registros de audiencia en televisión online (IPTV) y radio. Estos sistemas recaban y analizan sobre la marcha información anónima de las visualizaciones, las retransmisiones y la programación de los canales. Gracias al data mining se pueden emitir recomendaciones personalizadas a los radioyentes y telespectadores, conocer en directo sus intereses y su actividad, y entender mejor su conducta. Las cadenas obtienen, además, conocimiento muy valioso para sus anunciantes, que aprovechan estos datos para llegar con más precisión a sus clientes potenciales.
+
+> *NOTA: "Data mining, consiste en torturar los datos hasta que confiesen"*
 
 ### ETL
 
-ETL son las siglas de Extract, Transform, Load (extraer, transformar y cargar). Se trata de tomar datos de archivos muertos y convertirlos en algo que sea de utilidad para el negocio. También ayuda a tomar los datos vivos de la aplicación, transformarlos y guardarlos en un data warehouse periódicamente.
+> ETL son las siglas de Extract, Transform, Load (extraer, transformar y cargar). Se trata de tomar datos de archivos muertos y convertirlos en algo que sea de utilidad para el negocio. También ayuda a tomar los datos vivos de la aplicación, transformarlos y guardarlos en un data warehouse periódicamente.
+
+>ETL: sirve de 2 formas particulares para obtener valor de los datos en bruto.Para extraer data muerta de un Data Warehouse y realizar diferentes procesos con ella (transformarla, calcularla, limpiarla, e.t.c) para obtener valor de ella. Sirve también para pasar información viva de la aplicación con sus estados actuales, y luego de un tiempo definido, realizar esta tecnica de ETL para transformar la información y luego almacenarla en un Data Warehouse
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/52.png" width="500">
+  <h5> ETL </h5>
+</div>
 
 ### Business intelligence
 
-Business Intelligence es una parte muy importante de las carreras de datos ya que es el punto final del manejo de estos. Su razón de ser es tener la información lista, clara y que tenga todos los elementos para tomar decisiones en una empresa. Es necesario tener una buena sensibilidad por entender el negocio, sus necesidades y la información que puede llevar a tomar decisiones en el momento adecuado al momento de realizar business intelligence.
+> Business Intelligence es una parte muy importante de las carreras de datos ya que es el punto final del manejo de estos. Su razón de ser es tener la información lista, clara y que tenga todos los elementos para tomar decisiones en una empresa. Es necesario tener una buena sensibilidad por entender el negocio, sus necesidades y la información que puede llevar a tomar decisiones en el momento adecuado al momento de realizar business intelligence.
 
 ### Machine Learning
 
-Machine Learning tiene significados que varían. Es una serie de técnicas que involucran la inteligencia artificial y la detección de patrones. Machine learning para datos tiene un gran campo de acción y es un paso más allá del business intelligence. Nos ayuda a hacer modelos que encuentran patrones fortuitos encontrando correlaciones inesperadas.
+> Machine Learning tiene significados que varían. Es una serie de técnicas que involucran la inteligencia artificial y la detección de patrones. Machine learning para datos tiene un gran campo de acción y es un paso más allá del business intelligence. Nos ayuda a hacer modelos que encuentran patrones fortuitos encontrando correlaciones inesperadas. Tiene dos casos de uso particulares: Clasificación y Predicción.
 
-Tiene dos casos de uso particulares:
+CONCEPTOS | Descripción
+------------- | -------------
+IA | abarca a machine learning y deep learning y busca eliminar al humano en la creación de algoritmos y que todo ese proceso lo haga una computadora
+Machine learning | como dijo Israel, crea modelo y al señarle te encontrada modelos fortuitos, cuando le des una mar de datos él te va encontrar patrones
+Deep learning | le busca sentido a los datos.
 
-Clasificación
-Predicción
+> Una IA es un sistema que es inteligente, usando machine learning puedes buscar en una BBDD cuando tus clientes te compran más y te daras cuenta que es en finales de años y usando deep learning la computadora es capaz de encontrar el porqué te compran más.
 
 ### Data Science
 
-Data Science es aplicar todas las técnicas de procesamiento de datos. En su manera más pura tiene que ver con gente con un background de estadísticas y ciencias duras.
+> Data Science es aplicar todas las técnicas de procesamiento de datos. En su manera más pura tiene que ver con gente con un background de estadísticas y ciencias duras.Es aplicar todo lo que hemos visto, tecnicas de ETL, Data Mining, Business Intelligence. Aunque esta mas dirigida a personas con background de estadisticas, hoy en dia tambien participan personas con el perfil de Data Engineering. Al hacer Data Science estamos aplicando todo lo visto en los temas anteriores, no solo a nivel tecnico sino que desarrollamos la experiencia y conocimientos sobre las distintas tecnologias, en que parte del desarrollo de nuestro proyecto tenemos que utilizarlas, etc. Con lo cual el Data Science juega el papel de manager dentro de un equipo de profesionales de datos.
+
+<br>
+<div align="center"> 
+  <img src="Imágenes/53.png" width="650">
+  <h5> ETL </h5>
+</div>
+
 
 ### Por que aprender bases de datos hoy
 
-¡Has concluido el curso! Ahora tienes potentes herramientas y posibilidades para ingresar en este apasionante campo.
-
-Llevaste diagramas a bases de datos, exploraste un poco el mundo de las bases de datos no relacionales, hicimos un proyecto en firestore y transformamos Platzi blog de una base de datos relacional en una base de datos de documentos.
-
-Dentro de las posibilidades que tienes hoy en día puedes hacer: Machine learning, ETL, Data Warehouse, Data mining, entre otros.
-
+> ¡Has concluido el curso! Ahora tienes potentes herramientas y posibilidades para ingresar en este apasionante campo. Llevaste diagramas a bases de datos, exploraste un poco el mundo de las bases de datos no relacionales, hicimos un proyecto en firestore y transformamos Platzi blog de una base de datos relacional en una base de datos de documentos. Dentro de las posibilidades que tienes hoy en día puedes hacer: Machine learning, ETL, Data Warehouse, Data mining, entre otros.
 Recuerda practicar mucho con el proyecto. Te invito a que tomes el examen y verifiques tus conocimientos. ¡Exitos!
 
 ## Bonus
 
 ### Bases de datos relacionales vs no relacionales
 
-Las bases de datos relacionales han estado entre nosotros durante un largo tiempo y han sido usadas por grandes como Google, Amazon, entre otros. Aún son usadas por bancos, aseguradoras, etc.
-
-Las bases de datos no relacionales surgen cuando las grandes empresas sintieron necesidad de guardar y extraer grandes cantidades de datos en muy cortos periodos de tiempo, como YouTube.
+> -Las bases de datos relacionales han estado entre nosotros durante un largo tiempo y han sido usadas por grandes como Google, Amazon, entre otros. Aún son usadas por bancos, aseguradoras, etc. 
+> -Las bases de datos no relacionales surgen cuando las grandes empresas sintieron necesidad de guardar y extraer grandes cantidades de datos en muy cortos periodos de tiempo, como YouTube.
 
 ### Eligir una base de datos
+
+(PROXIMAMENTE...)
